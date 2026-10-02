@@ -109,7 +109,7 @@
 </div>
 
 <script>
-// 最新CSV同期キャラクターデータリスト（159名）
+// 全171キャラクターデータ
 const characters = [
     {name: "ミミ", gender: "女", personality: "明るい・おしゃべり", personalityType: "A：明朗・活発型", age: "子供〜10代", look: "かわいい・親しみやすい", species: "ウサギ", color: "茶/ピンク", tempo: "普通", music: "ポップ・キュート", note: "Wiki設定：ウサギ。性格等は代表的な描写からの分類。／性格・見た目・色・テンポ・曲調は代表的描写/楽曲を基にした分類。", wiki: "https://popnmusic.fandom.com/wiki/Mimi", score: 0},
     {name: "ニャミ", gender: "女", personality: "明るい・ひょうきん・活発", personalityType: "A：明朗・活発型", age: "10代〜若者", look: "猫耳・茶髪・活発", species: "猫", color: "茶/青/赤/白", tempo: "普通〜速め", music: "ポップ・キュート・ダンス", note: "指定Wiki参照：女性・Cat。2月8日生まれ。ミミの親友・パートナー。チャットや遊園地が好きで、ジェットコースター好き。", wiki: "https://popnmusic.fandom.com/wiki/Nyami", score: 0},
@@ -216,7 +216,7 @@ const characters = [
     {name: "アカツキ", gender: "男", personality: "穏やか・自然を愛する", personalityType: "B：穏やか・自由型", age: "成人", look: "白髪・黄色い目・神秘的", species: "神（God）", color: "白/金/赤", tempo: "普通〜遅め", music: "自然・幻想・エスニック", note: "自然・幻想・エスニック担当の神", wiki: "", score: 0},
     {name: "アーク", gender: "男", personality: "若者・冒険心旺盛", personalityType: "A：明朗・活発型", age: "不明", look: "銀髪・細身・エルフ・青い目", species: "エルフ", color: "銀/青/白", tempo: "普通〜速め", music: "ファンタジー・幻想・民族音楽", note: "ファンタジー・幻想担当のエルフ", wiki: "", score: 0},
     {name: "メリッサ", gender: "女", personality: "勝ち気・冒険好き・活発", personalityType: "D：強気・個性型", age: "若者", look: "金髪ロング三つ編み・エルフ・騎士風", species: "エルフ", color: "金/青/銀", tempo: "速め", music: "ファンタジー・冒険・クラシック", note: "ファンタジー・冒険担当のエルフ騎士", wiki: "", score: 0},
-    {name: "シオン", gender: "女", personality: "内気・繊細・芯が強い", personalityType: "C：冷静・知性型", age: "若者", look: "淡い青髪・雪のような幻想的な姿", species: "雪の妖精", color: "水色/白/銀", tempo: "遅め〜普通", music: "冬・幻想・エレクトロ", note: "冬・幻想・エレクトロ担当の雪の妖精", wiki: "", score: 0},
+    {name: "シオン", gender: "女", personality: "内気・繊細・芯が強い", personalityType: "B：穏やか・自由型", age: "若者", look: "淡い青髪・雪のような幻想的な姿", species: "雪の妖精", color: "水色/淡紫/白", tempo: "速め", music: "冬・幻想・エレクトロ", note: "ノルウェーの森出身。雪遊びが趣味で、冬を好み春を嫌う。", wiki: "https://popnmusic.fandom.com/wiki/Shion_%28character%29", score: 0},
     {name: "マナ", gender: "女", personality: "物静か・神秘的・寂しげ", personalityType: "C：冷静・知性型", age: "不明", look: "白い肌・青髪・人魚の尾・海の装飾", species: "人魚", color: "青/水色/白", tempo: "遅め〜普通", music: "幻想・海洋・スプラッシュ系", note: "幻想・海洋担当の人魚", wiki: "", score: 0},
     {name: "エステル", gender: "女", personality: "好奇心旺盛・職人気質・友好的", personalityType: "A：明朗・活発型", age: "若者", look: "淡い金髪・エルフ・機械の義手", species: "エルフ", color: "金/茶/銀", tempo: "普通〜速め", music: "ファンタジー・テクノ・民族音楽", note: "ファンタジー・テクノ担当のエルフ", wiki: "", score: 0},
     {name: "シルビア", gender: "女", personality: "内気・穏やか・自然を愛する", personalityType: "B：穏やか・自由型", age: "不明", look: "金髪・花冠・蝶のような翼", species: "妖精", color: "緑/白/金", tempo: "遅め〜普通", music: "森・バレエ・幻想", note: "森・バレエ・幻想担当の妖精", wiki: "", score: 0},
@@ -269,18 +269,31 @@ const characters = [
     {name: "ビス子", gender: "女", personality: "元気・好奇心旺盛・ゲーム好き", personalityType: "A：明朗・活発型", age: "少女〜青年", look: "猫耳・淡橙色の髪・アンドロイド", species: "アンドロイド", color: "橙/白/青", tempo: "速め", music: "エレクトロ・デジタル・SF", note: "エレクトロ・デジタル担当のアンドロイド", wiki: "", score: 0},
     {name: "ツインビー", gender: "不明", personality: "勇敢・コミカル", personalityType: "A：明朗・活発型", age: "不明", look: "黄色い宇宙船・ベルのモチーフ", species: "宇宙船", color: "黄/青/赤", tempo: "速め", music: "ユーロビート・ゲーム音楽・SF", note: "ユーロビート担当の宇宙船キャラ", wiki: "", score: 0},
     {name: "スペース＠マコ", gender: "女", personality: "正義感が強い・元気", personalityType: "A：明朗・活発型", age: "青年〜成人", look: "宇宙ヒロイン・SFスーツ", species: "人間/宇宙ヒロイン", color: "赤/白/青", tempo: "速め", music: "スペース・ポップ・SF", note: "Space Heroine系キャラクター。", wiki: "", score: 0},
-    {name: "流星ハニー", gender: "女", personality: "元気・情熱的・ヒロイン気質", personalityType: "A：明朗・活発型", age: "青年〜成人", look: "流星・宇宙ヒロイン風", species: "宇宙人/宇宙ヒロイン", color: "黄/赤/ピンク", tempo: "速め", music: "ハッピー・宇宙・ポップ", note: "星・流星をモチーフにした宇宙系ヒロイン。", wiki: "", score: 0}
+    {name: "流星ハニー", gender: "女", personality: "元気・情熱的・ヒロイン気質", personalityType: "A：明朗・活発型", age: "青年〜成人", look: "流星・宇宙ヒロイン風", species: "宇宙人/宇宙ヒロイン", color: "黄/赤/ピンク", tempo: "速め", music: "ハッピー・宇宙・ポップ", note: "星・流星をモチーフにした宇宙系ヒロイン。", wiki: "", score: 0},
+    {name: "ヴィルヘルム", gender: "男", personality: "冷酷・知性的・高貴", personalityType: "C：冷静・知性型", age: "成人", look: "軍服・黒髪・モノクル", species: "人間", color: "黒/銀/赤", tempo: "普通〜速め", music: "クラシック・オーケストラ・ダーク", note: "クラシック・オーケストラ担当の軍人風男性", wiki: "", score: 0},
+    {name: "セルヒオ", gender: "男", personality: "陽気・情熱的・ダンディ", personalityType: "A：明朗・活発型", age: "成人", look: "スーツ・髭・ダンサー", species: "人間", color: "赤/黒/金", tempo: "速め", music: "タンゴ・ラテン・ダンス", note: "タンゴ・ラテン担当の男性", wiki: "", score: 0},
+    {name: "ボリス", gender: "男", personality: "寡黙・頑固・人情家", personalityType: "C：冷静・知性型", age: "成人", look: "大柄・コート・帽子", species: "人間", color: "茶/灰/黒", tempo: "遅め〜普通", music: "ロシア・フォーク・ブラス", note: "ロシア・フォーク担当の大柄な男性", wiki: "", score: 0},
+    {name: "ピエール", gender: "男", personality: "キザ・ロマンチスト・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "金髪・タキシード・薔薇", species: "人間", color: "白/ピンク/金", tempo: "普通", music: "フレンチポップ・シャンソン", note: "フレンチポップ担当のキザな青年", wiki: "", score: 0},
+    {name: "ジル", gender: "女", personality: "クール・ミステリアス・孤独", personalityType: "C：冷静・知性型", age: "若者", look: "黒髪ショート・革ジャン", species: "人間", color: "黒/紫/銀", tempo: "速め", music: "サイバー・ロック・インダストリアル", note: "インダストリアル・ロック担当の女性", wiki: "", score: 0},
+    {name: "フランソワ", gender: "女", personality: "気まぐれ・小悪魔的・エレガント", personalityType: "D：強気・個性型", age: "若者", look: "ドレス・扇子・黒猫モチーフ", species: "人間", color: "紫/黒/ピンク", tempo: "普通", music: "ジャズ・キャバレー", note: "ジャズ・キャバレー担当の女性", wiki: "", score: 0},
+    {name: "マロン", gender: "女", personality: "のんびり・食いしん坊・天然", personalityType: "B：穏やか・自由型", age: "子供", look: "栗モチーフ・ほっぺが赤い", species: "リス", color: "茶/黄/橙", tempo: "普通", music: "カントリー・アコースティック", note: "カントリー・ポップ担当のリスキャラ", wiki: "", score: 0},
+    {name: "オトハ", gender: "女", personality: "和やか・慎み深い・風流", personalityType: "C：冷静・知性型", age: "10代", look: "着物・巫女風・ロングヘア", species: "人間", color: "白/赤/緑", tempo: "遅め〜普通", music: "和風・雅楽・ヒーリング", note: "和風ヒーリング担当の巫女風少女", wiki: "", score: 0},
+    {name: "ガルシア", gender: "男", personality: "豪快・豪壮・力強い", personalityType: "D：強気・個性型", age: "成人", look: "筋肉質・覆面レスラー", species: "人間", color: "赤/黄/黒", tempo: "速め", music: "ルチャ・ロック・メタル", note: "ルチャ・ロック担当の覆面レスラー", wiki: "", score: 0},
+    {name: "ハク", gender: "男", personality: "浮世離れ・神秘的・穏やか", personalityType: "B：穏やか・自由型", age: "不明", look: "白装束・長髪・狐耳風", species: "神仙/龍神", color: "白/銀/青", tempo: "遅め〜普通", music: "オリエンタル・アンビエント", note: "オリエンタル・アンビエント担当の神仙", wiki: "", score: 0},
+    {name: "チヒロ", gender: "女", personality: "真面目・一途・努力家", personalityType: "C：冷静・知性型", age: "10代", look: "弓道着・黒髪ポニーテール", species: "人間", color: "白/黒/紺", tempo: "普通〜速め", music: "和風ポップ・和ロック", note: "和風ポップ担当の弓道少女", wiki: "", score: 0},
+    {name: "レオナルド", gender: "男", personality: "探求心旺盛・変人・発明家", personalityType: "D：強気・個性型", age: "成人", look: "ゴーグル・白衣・機械の鞄", species: "人間", color: "茶/銅/緑", tempo: "普通〜速め", music: "スチームパンク・スウィング", note: "スチームパンク担当の発明家", wiki: "", score: 0},
+    {name: "デボラ", gender: "女", personality: "物静か・一途・哀愁を帯びた", personalityType: "C：冷静・知性型", age: "成人相当（生前年齢不明）", look: "ダークブロンドの長髪・青灰色の肌・白いウェディングドレス", species: "アンデッド", color: "白/灰/赤/金", tempo: "遅め", music: "ゴシック・メランコリック", note: "亡くなった婚約者を待ち続ける設定。", wiki: "https://popnmusic.fandom.com/wiki/Deborah", score: 0}
 ];
 
 let filteredCharacters = [...characters];
 
-// 質問リスト（全7問構成）
+// 質問リスト（全8問構成・配点チューニング済）
 const questions = [
     {
         question: "Q1. キャラクターの種族は？",
         options: [
             { text: "人間キャラクター", filterType: "人間", weight: 3 },
-            { text: "人間以外（人外・ロボット・動物・神など）", filterType: "人外", weight: 3 },
+            { text: "人間以外（人外・アンデッド・ロボット・動物・神など）", filterType: "人外", weight: 3 },
             { text: "こだわりなし（どちらでも）", filterType: "全員", weight: 0 }
         ]
     },
@@ -299,7 +312,7 @@ const questions = [
             { text: "子供・児童（元気いっぱい系）", key: "age", value: "子供", weight: 3 },
             { text: "10代（学生・フレッシュ系）", key: "age", value: "10代", weight: 3 },
             { text: "若者（お兄さん・お姉さん系）", key: "age", value: "若者", weight: 3 },
-            { text: "成人・大人の魅力（ベテラン・神など）", key: "age", value: "成人", weight: 3 }
+            { text: "成人・大人の魅力（ベテラン・神・生前など）", key: "age", value: "成人", weight: 3 }
         ]
     },
     {
@@ -307,6 +320,7 @@ const questions = [
         options: [
             { text: "とにかくかわいい系", key: "look", value: "かわいい", weight: 3 },
             { text: "かっこいい・スタイリッシュ系", key: "look", value: "かっこいい", weight: 3 },
+            { text: "ゴシック・ドレス・アンデッド・ミステリアス系", gothicDressLook: true, weight: 4 },
             { text: "和風・エスニック系", key: "look", value: "和風", weight: 3 },
             { text: "個性的・コミカル系", key: "look", value: "コミカル", weight: 3 }
         ]
@@ -316,7 +330,7 @@ const questions = [
         options: [
             { text: "✨ A：明朗・活発型（明るい、元気、活発、おしゃべりなど）", personalityType: "A", weight: 5 },
             { text: "🍃 B：穏やか・自由型（優しい、マイペース、おっとり、飄々など）", personalityType: "B", weight: 5 },
-            { text: "🌙 C：冷静・知性型（クール、真面目、知的、寡黙など）", personalityType: "C", weight: 5 },
+            { text: "🌙 C：冷静・知性型（物静か、一途、儚い、哀愁、知的など）", personalityType: "C", weight: 5 },
             { text: "🔥 D：強気・個性型（豪快、勝ち気、熱血、コミカルなど）", personalityType: "D", weight: 5 }
         ]
     },
@@ -325,7 +339,7 @@ const questions = [
         options: [
             { text: "アップテンポで速い・ノリノリ！", key: "tempo", value: "速め", weight: 2 },
             { text: "程よいミディアムテンポ（普通）", key: "tempo", value: "普通", weight: 2 },
-            { text: "ゆったり・スローテンポ（遅め）", key: "tempo", value: "遅め", weight: 2 }
+            { text: "ゆったり・スローテンポ・哀愁（遅め）", key: "tempo", value: "遅め", weight: 2 }
         ]
     },
     {
@@ -334,7 +348,17 @@ const questions = [
             { text: "ポップス・アイドル・ダンス系", key: "music", value: "ポップ", weight: 3 },
             { text: "ロック・パンク・メタル系", key: "music", value: "ロック", weight: 3 },
             { text: "和風・エスニック・民族系", key: "music", value: "和風", weight: 3 },
+            { text: "ゴシック・メランコリック・クラシック・ダーク系", gothicMusic: true, weight: 4 },
             { text: "ジャズ・ラテン・ファンタジー・テクノ系", key: "music", value: "ジャズ", weight: 3 }
+        ]
+    },
+    {
+        question: "Q8. どんな世界観に惹かれる？（超重要）",
+        options: [
+            { text: "🎨 A. カラフルで楽しく、にぎやかな世界", personalityType: "A", weight: 6 },
+            { text: "🌿 B. 自然体で自由、少し不思議な世界", personalityType: "B", weight: 6 },
+            { text: "🌌 C. 神秘的で知的、静けさのある世界", personalityType: "C", weight: 6 },
+            { text: "🥀 D. ダーク・ゴシックで切なく、哀愁あふれる世界", darkGothicWorld: true, weight: 6 }
         ]
     }
 ];
@@ -360,7 +384,7 @@ function showQuestion() {
 function selectOption(opt) {
     const weight = opt.weight || 2;
 
-    // Q1: 種族の絞り込み
+    // Q1: 種族絞り込み
     if (currentQ === 0) {
         if (opt.filterType === "人間") {
             filteredCharacters = characters.filter(c => c.species === "人間" || c.species.includes("人間"));
@@ -370,7 +394,7 @@ function selectOption(opt) {
             filteredCharacters = [...characters];
         }
     }
-    // Q2: 性別の絞り込み
+    // Q2: 性別絞り込み
     else if (currentQ === 1) {
         if (opt.genderType === "男") {
             filteredCharacters = filteredCharacters.filter(c => c.gender === "男");
@@ -380,19 +404,56 @@ function selectOption(opt) {
             filteredCharacters = filteredCharacters.filter(c => c.gender === "不明" || (c.gender !== "男" && c.gender !== "女"));
         }
     }
-    // Q5 (index 4): 性格タイプ（重い比重で加点）
-    else if (currentQ === 4 && opt.personalityType) {
+    // Q4: ゴシック・ドレス・アンデッド判定
+    else if (currentQ === 3 && opt.gothicDressLook) {
         filteredCharacters.forEach(c => {
-            if (c.personalityType && c.personalityType.startsWith(opt.personalityType)) {
-                c.score += weight; // weight = 5
+            if (c.look.includes("ゴシック") || c.look.includes("ドレス") || c.species.includes("アンデッド") || c.species.includes("幽霊")) {
+                c.score += 4;
+            } else if (c.look.includes("神秘")) {
+                c.score += 2;
             }
         });
     }
-    // その他の質問加点
+    // Q5: 性格タイプ判定
+    else if (currentQ === 4 && opt.personalityType) {
+        filteredCharacters.forEach(c => {
+            if (c.personalityType && c.personalityType.startsWith(opt.personalityType)) {
+                c.score += weight;
+            }
+        });
+    }
+    // Q7: ゴシック・メランコリック音楽判定
+    else if (currentQ === 6 && opt.gothicMusic) {
+        filteredCharacters.forEach(c => {
+            if (c.music.includes("ゴシック") || c.music.includes("メランコリック")) {
+                c.score += 4;
+            } else if (c.music.includes("ダーク") || c.music.includes("クラシック") || c.music.includes("ミスティ") || c.music.includes("エモ")) {
+                c.score += 2;
+            }
+        });
+    }
+    // Q8: ダーク・ゴシック世界観判定（超重要: 6点加点）
+    else if (currentQ === 7 && opt.darkGothicWorld) {
+        filteredCharacters.forEach(c => {
+            if (c.music.includes("ゴシック") || c.music.includes("メランコリック") || c.species.includes("アンデッド")) {
+                c.score += 6;
+            } else if (c.personalityType.startsWith("C") || c.personalityType.startsWith("D")) {
+                c.score += 3;
+            }
+        });
+    }
+    else if (currentQ === 7 && opt.personalityType) {
+        filteredCharacters.forEach(c => {
+            if (c.personalityType && c.personalityType.startsWith(opt.personalityType)) {
+                c.score += weight;
+            }
+        });
+    }
+    // その他の属性加点
     else {
         filteredCharacters.forEach(c => {
             if (currentQ === 6 && opt.text.includes("ジャズ・ラテン")) {
-                if (c.music.includes("ジャズ") || c.music.includes("ラテン") || c.music.includes("ファンタジー") || c.music.includes("テクノ") || c.music.includes("幻想") || c.music.includes("クラシック") || c.music.includes("アンビエント") || c.music.includes("ダンス") || c.music.includes("ディスコ") || c.music.includes("シャンソン")) {
+                if (c.music.includes("ジャズ") || c.music.includes("ラテン") || c.music.includes("ファンタジー") || c.music.includes("テクノ") || c.music.includes("幻想") || c.music.includes("アンビエント") || c.music.includes("ダンス") || c.music.includes("ディスコ") || c.music.includes("シャンソン")) {
                     c.score += weight;
                 }
             } 
