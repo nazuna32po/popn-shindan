@@ -109,7 +109,7 @@
 </div>
 
 <script>
-// 全171キャラクターデータ
+// ハッシュマン修正反映済み・キャラクターデータ全リスト
 const characters = [
     {name: "ミミ", gender: "女", personality: "明るい・おしゃべり", personalityType: "A：明朗・活発型", age: "子供〜10代", look: "かわいい・親しみやすい", species: "ウサギ", color: "茶/ピンク", tempo: "普通", music: "ポップ・キュート", note: "Wiki設定：ウサギ。性格等は代表的な描写からの分類。／性格・見た目・色・テンポ・曲調は代表的描写/楽曲を基にした分類。", wiki: "https://popnmusic.fandom.com/wiki/Mimi", score: 0},
     {name: "ニャミ", gender: "女", personality: "明るい・ひょうきん・活発", personalityType: "A：明朗・活発型", age: "10代〜若者", look: "猫耳・茶髪・活発", species: "猫", color: "茶/青/赤/白", tempo: "普通〜速め", music: "ポップ・キュート・ダンス", note: "指定Wiki参照：女性・Cat。2月8日生まれ。ミミの親友・パートナー。チャットや遊園地が好きで、ジェットコースター好き。", wiki: "https://popnmusic.fandom.com/wiki/Nyami", score: 0},
@@ -121,173 +121,180 @@ const characters = [
     {name: "リエ♥ちゃん", gender: "女", personality: "優しい・おしゃれ好き", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・ファッショナブル", species: "人間", color: "オレンジ/ピンク", tempo: "普通", music: "ガーリー・ポップ", note: "Wiki設定：18歳。", wiki: "https://popnmusic.fandom.com/ja/wiki/リエ♥ちゃん", score: 0},
     {name: "さなえ♥ちゃん", gender: "女", personality: "明るい・親しみやすい", personalityType: "A：明朗・活発型", age: "10代", look: "かわいい・元気", species: "人間", color: "黄/赤/ピンク", tempo: "普通", music: "ポップ・ガールズ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%81%95%E3%81%AA%E3%81%88%E2%99%A5%E3%81%A1%E3%82%83%E3%82%93", score: 0},
     {name: "ジュディ", gender: "女", personality: "快活・行動的", personalityType: "A：明朗・活発型", age: "若者", look: "スポーティー・グラマラス", species: "人間", color: "赤/青/白", tempo: "速め", music: "ダンス・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B8%E3%83%A5%E3%83%87%E3%82%A3", score: 0},
-    {name: "タイマー", gender: "男", personality: "華やか・サービス精神旺盛", personalityType: "A：明朗・活発型", age: "若者", look: "アイドル・スタイリッシュ", species: "人間", color: "黄/青/白", tempo: "速め", music: "アイドル・ポップ", note: "アイドル・ポップ担当の青年", wiki: "", score: 0},
-    {name: "スマイル", gender: "男", personality: "飄々・いたずら好き", personalityType: "B：穏やか・自由型", age: "若者", look: "ミステリアス・細身", species: "透明人間", color: "黒/紫", tempo: "普通", music: "ヴィジュアル・ロック", note: "ヴィジュアル・ロック担当", wiki: "", score: 0},
-    {name: "アイス", gender: "男", personality: "素直・おだやか", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・少年風", species: "人間", color: "青/白", tempo: "普通", music: "ラウンジ・ポップ", note: "ラウンジ・ポップ担当の少年", wiki: "", score: 0},
-    {name: "ポエット", gender: "女", personality: "優しい・好奇心旺盛", personalityType: "B：穏やか・自由型", age: "子供", look: "かわいい・天使的", species: "天使", color: "白/青", tempo: "普通", music: "ケルト・ファンタジー", note: "ケルト・ファンタジー担当の天使", wiki: "", score: 0},
-    {name: "ショルキー", gender: "男", personality: "クール・おしゃれ", personalityType: "C：冷静・知性型", age: "若者", look: "スタイリッシュ・長身", species: "人間", color: "黒/赤/銀", tempo: "普通", music: "ポップ・ファンク", note: "ポップ・ファンク担当の長身青年", wiki: "", score: 0},
-    {name: "ジズ", gender: "男", personality: "神秘的・礼儀正しい・人形好き", personalityType: "C：冷静・知性型", age: "成人", look: "仮面の紳士・不気味で優雅", species: "幽霊／ファントム", color: "黒/紫", tempo: "普通〜遅め", music: "ダーク・幻想・クラシック系", note: "ミステリアスな幽霊紳士", wiki: "https://popnmusic.fandom.com/wiki/Zizz", score: 0},
-    {name: "アルフォンス・ミシェル", gender: "男", personality: "知的・物静か", personalityType: "C：冷静・知性型", age: "成人", look: "美形・貴族的", species: "人間/天使?", color: "白/金", tempo: "遅め", music: "クラシック・幻想系", note: "クラシック・幻想系担当の貴族風男性", wiki: "", score: 0},
-    {name: "Mr.KK", gender: "男", personality: "真面目・クール", personalityType: "C：冷静・知性型", age: "成人", look: "都会的・渋い", species: "人間", color: "茶/灰/黒", tempo: "普通", music: "パーカッシブ・アーバンロック", note: "渋くてカッコいい掃除屋さん", wiki: "https://popnmusic.fandom.com/wiki/Mr.KK", score: 0},
-    {name: "ナカジ", gender: "男", personality: "ぶっきらぼう・仲間思い", personalityType: "D：強気・個性型", age: "10代", look: "クール・少年", species: "人間", color: "青/赤/白", tempo: "速め", music: "ロック・パンク", note: "ロック・パンク担当の少年", wiki: "", score: 0},
-    {name: "ハヤト", gender: "男", personality: "元気・真面目", personalityType: "A：明朗・活発型", age: "10代", look: "スポーティー・少年", species: "人間", color: "青/白/赤", tempo: "速め", music: "ロック・ポップロック", note: "ロック・ポップロック担当の少年", wiki: "", score: 0},
-    {name: "リゼット", gender: "女", personality: "おっとり・優しい", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・清楚", species: "人間", color: "緑/白", tempo: "普通", music: "ポップ・ガーリー", note: "ポップ・ガーリー担当の少女", wiki: "", score: 0},
-    {name: "ムラサキ", gender: "女", personality: "芯が強い・職人気質", personalityType: "D：強気・個性型", age: "若者", look: "和風・艶やか", species: "人間", color: "紫/黒/赤", tempo: "普通", music: "三味線・和風", note: "三味線・和風担当の女性", wiki: "", score: 0},
-    {name: "スギくん", gender: "男", personality: "爽やか・音楽好き", personalityType: "A：明朗・活発型", age: "若者", look: "バンドマン・爽やか", species: "人間", color: "黒/赤/青", tempo: "普通", music: "ロック・ポップロック", note: "ロック・ポップロック担当の青年", wiki: "", score: 0},
-    {name: "カジカ", gender: "男", personality: "探究心旺盛・神秘的", personalityType: "B：穏やか・自由型", age: "10代", look: "金髪・洞窟探検家風・少年", species: "人間", color: "茶/青/黄", tempo: "普通〜速め", music: "幻想・ロック・トランス", note: "カジカのキャラクターデータ", wiki: "", score: 0},
-    {name: "ロキ", gender: "男", personality: "いたずら好き・自由人", personalityType: "B：穏やか・自由型", age: "若者", look: "ロック・ワイルド", species: "人間/悪魔系", color: "赤/黒/紫", tempo: "速め", music: "ロック・メタル", note: "ロック・メタル担当の青年", wiki: "", score: 0},
-    {name: "ロッテ", gender: "女", personality: "元気・おちゃめ", personalityType: "A：明朗・活発型", age: "子供〜10代", look: "かわいい・小柄", species: "人間", color: "赤/白/黄", tempo: "速め", music: "ポップ・キュート", note: "ポップ・キュート担当の小柄な少女", wiki: "", score: 0},
-    {name: "ミルク", gender: "女", personality: "明るい・おっとり", personalityType: "A：明朗・活発型", age: "子供", look: "かわいい・動物系", species: "人間", color: "白/ピンク", tempo: "普通", music: "キュート・ポップ", note: "キュート・ポップ担当の女の子", wiki: "", score: 0},
-    {name: "ミニッツ", gender: "女", personality: "元気・アイドル気質", personalityType: "A：明朗・活発型", age: "10代", look: "かわいい・アイドル", species: "人間", color: "黄/白/青", tempo: "速め", music: "アイドル・ポップ", note: "アイドル・ポップ担当の少女", wiki: "", score: 0},
-    {name: "リンリン", gender: "女", personality: "おおらか・食いしん坊", personalityType: "B：穏やか・自由型", age: "10代", look: "中華風・かわいい", species: "人間", color: "赤/黄", tempo: "普通", music: "中華・ポップ", note: "中華・ポップ担当の少女", wiki: "", score: 0},
-    {name: "シャルロット", gender: "女", personality: "上品・おっとり", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・フランス風", species: "人間", color: "青/白/ピンク", tempo: "普通", music: "ワルツ・クラシック", note: "ワルツ・クラシック担当の少女", wiki: "", score: 0},
-    {name: "シルビア", gender: "女", personality: "クール・大人びた", personalityType: "C：冷静・知性型", age: "若者", look: "スタイリッシュ・美人", species: "人間", color: "黒/銀/紫", tempo: "普通", music: "ジャズ・ラウンジ", note: "ジャズ・ラウンジ担当の美人", wiki: "", score: 0},
-    {name: "グミ", gender: "女", personality: "明るい・おてんば", personalityType: "A：明朗・活発型", age: "10代", look: "カラフル・かわいい", species: "人間", color: "緑/赤/黄", tempo: "速め", music: "ポップ・キュート", note: "ポップ・キュート担当の少女", wiki: "", score: 0},
-    {name: "ユリちゃん", gender: "女", personality: "少し内気・がんばり屋", personalityType: "C：冷静・知性型", age: "若者", look: "そばかす・茶髪ツインテール・眼鏡", species: "人間", color: "茶/青/白", tempo: "普通", music: "ガールズポップ・ジェットコースターポップ", note: "ユリちゃんのキャラクターデータ", wiki: "", score: 0},
-    {name: "ルーシー", gender: "女", personality: "自由奔放・快活", personalityType: "A：明朗・活発型", age: "若者", look: "スポーティー・元気", species: "人間", color: "赤/青/黒", tempo: "速め", music: "ロック・ダンス", note: "ロック・ダンス担当の女性", wiki: "", score: 0},
-    {name: "桔梗", gender: "女", personality: "凛としている・穏やか", personalityType: "C：冷静・知性型", age: "若者", look: "和風・美人", species: "人間", color: "紫/白/黒", tempo: "遅め", music: "和風・幻想", note: "和風・幻想担当の女性", wiki: "", score: 0},
-    {name: "虹野ひかり", gender: "女", personality: "明るい・社交的", personalityType: "A：明朗・活発型", age: "10代", look: "アイドル・カラフル", species: "人間", color: "虹色/ピンク/白", tempo: "速め", music: "ラブリー・アイドル", note: "ラブリー・アイドル担当の少女", wiki: "", score: 0},
-    {name: "夢野みらい", gender: "女", personality: "内気・優しい・怖がり", personalityType: "B：穏やか・自由型", age: "10代", look: "アイドル・かわいい", species: "人間", color: "水色/白", tempo: "普通", music: "ラブリー・ポップ", note: "ラブリー・ポップ担当の少女", wiki: "", score: 0},
-    {name: "ハジメ", gender: "男", personality: "真面目・熱血", personalityType: "C：冷静・知性型", age: "10代", look: "スポーティー・少年", species: "人間", color: "青/白/赤", tempo: "速め", music: "ロック・ポップロック", note: "ロック・ポップロック担当の少年", wiki: "", score: 0},
-    {name: "DTO", gender: "男", personality: "豪快・先生気質", personalityType: "D：強気・個性型", age: "成人", look: "コミカル・大柄", species: "人間", color: "茶/緑/赤", tempo: "速め", music: "ハードロック・パンク", note: "ハードロック・パンク担当の男性", wiki: "", score: 0},
-    {name: "ヒュー", gender: "男", personality: "クール・寡黙", personalityType: "C：冷静・知性型", age: "若者", look: "美形・クール", species: "人間", color: "黒/銀/紫", tempo: "速め", music: "ロック・ダンス", note: "ロック・ダンス担当の青年", wiki: "", score: 0},
-    {name: "ジェイド", gender: "男", personality: "落ち着いている・神秘的", personalityType: "C：冷静・知性型", age: "若者", look: "美形・幻想的", species: "人間/異世界系", color: "緑/銀/白", tempo: "普通", music: "幻想・エレクトロ", note: "幻想・エレクトロ担当の男性", wiki: "", score: 0},
-    {name: "鹿ノ子", gender: "女", personality: "活発・かわいらしい・芯が強い", personalityType: "A：明朗・活発型", age: "10代", look: "和風・鹿モチーフ・華やか", species: "人間", color: "赤/緑/白", tempo: "普通〜速め", music: "和風・ナデシコロック", note: "和風・ガールズロック担当の少女", wiki: "", score: 0},
-    {name: "つらら", gender: "女", personality: "元気・勝ち気", personalityType: "D：強気・個性型", age: "10代", look: "冬・スポーティー", species: "人間", color: "青/白", tempo: "速め", music: "ハッピーハードコア・ポップ", note: "ハッピーハードコア担当の少女", wiki: "", score: 0},
-    {name: "鈴花", gender: "女", personality: "明るい・負けず嫌い", personalityType: "A：明朗・活発型", age: "10代", look: "中華風・元気", species: "人間", color: "赤/黄/緑", tempo: "速め", music: "中華・ガールズポップ", note: "中華・ガールズポップ担当の少女", wiki: "", score: 0},
-    {name: "烈", gender: "男", personality: "熱血・直情的", personalityType: "D：強気・個性型", age: "10代", look: "和風・ロック系", species: "人間", color: "赤/黒/白", tempo: "速め", music: "ロック・ヒップロック", note: "ロック・ヒップロック担当の学ラン男子", wiki: "", score: 0},
-    {name: "風雅", gender: "男", personality: "冷静・やさしい", personalityType: "C：冷静・知性型", age: "10代", look: "和風・スタイリッシュ", species: "人間", color: "緑/黒/白", tempo: "速め", music: "ロック・幻想", note: "ロック・幻想担当の少年", wiki: "", score: 0},
-    {name: "氷海", gender: "男", personality: "クール・寡黙", personalityType: "C：冷静・知性型", age: "10代", look: "中性的・冷たい印象", species: "人間", color: "水色/白/黒", tempo: "普通", music: "クラシック・幻想", note: "クラシック・幻想担当の少年", wiki: "", score: 0},
-    {name: "文彦", gender: "男", personality: "知的・落ち着き", personalityType: "C：冷静・知性型", age: "若者", look: "眼鏡・文系", species: "人間", color: "茶/黒/白", tempo: "普通", music: "ジャズ・ポップ", note: "ジャズ・ポップ担当の青年", wiki: "", score: 0},
-    {name: "乱麻", gender: "女", personality: "武道家気質・凛々しい・一途", personalityType: "D：強気・個性型", age: "若者", look: "金髪・武道家風・凛々しい", species: "人間", color: "金/赤/白", tempo: "普通〜速め", music: "和風・ロック・舞楽", note: "和風ロック担当の武道家女性", wiki: "", score: 0},
-    {name: "アリシア", gender: "女", personality: "おっとり・上品", personalityType: "B：穏やか・自由型", age: "10代", look: "幻想的・かわいい", species: "人間/妖精系", color: "白/青/ピンク", tempo: "遅め", music: "ファンタジー・クラシック", note: "ファンタジー・クラシック担当の少女", wiki: "", score: 0},
-    {name: "モイモイ", gender: "女", personality: "明るい・ふわふわ・愛らしい", personalityType: "A：明朗・活発型", age: "若者", look: "薄灰色の髪・大きなリボン・和風ロリータ", species: "人間", color: "灰/赤/白", tempo: "普通〜速め", music: "和風・エレクトロポップ", note: "和風・エレクトロポップ担当の女性", wiki: "", score: 0},
-    {name: "ALT", gender: "女", personality: "明るい・アイドル気質", personalityType: "A：明朗・活発型", age: "若者", look: "ロボット・電子アイドル", species: "コンピュータヒューマノイド", color: "緑/白/銀", tempo: "速め", music: "テクノ・デジタルポップ", note: "電子アイドル", wiki: "https://popnmusic.fandom.com/wiki/ALT", score: 0},
-    {name: "パピルス", gender: "男", personality: "陽気・快活・いたずら好き", personalityType: "A：明朗・活発型", age: "少年〜青年", look: "小柄な少年風・紫系の衣装", species: "精霊", color: "紫/白/黒", tempo: "普通〜速め", music: "ポップ・ファンタジー", note: "ポップ・ファンタジー担当の精霊", wiki: "", score: 0},
-    {name: "ししゃも", gender: "不明", personality: "のんびり・自由", personalityType: "B：穏やか・自由型", age: "子供〜動物", look: "かわいい・猫", species: "ネコ", color: "灰/白", tempo: "普通", music: "キュート・ポップ", note: "キュート・ポップ担当の猫キャラ", wiki: "", score: 0},
-    {name: "リュータ", gender: "男", personality: "元気・スポーツ好き", personalityType: "A：明朗・活発型", age: "10代", look: "少年・スポーティー", species: "人間", color: "赤/青/白", tempo: "速め", music: "ロック・ポップ", note: "ロック・ポップ担当のスポーツ少年", wiki: "", score: 0},
-    {name: "しろろ", gender: "男", personality: "おっとり・素直", personalityType: "B：穏やか・自由型", age: "子供", look: "かわいい・小動物的", species: "人間/人外系", color: "白/青", tempo: "普通", music: "ファンタジー・ポップ", note: "ファンタジー・ポップ担当のキャラ", wiki: "", score: 0},
-    {name: "ニュー・ミュー", gender: "女", personality: "明るい・不思議", personalityType: "A：明朗・活発型", age: "10代", look: "猫耳・かわいい", species: "人間/ネコ系", color: "ピンク/白", tempo: "速め", music: "キュート・ポップ", note: "キュート・ポップ担当の猫耳少女", wiki: "", score: 0},
-    {name: "めばえ", gender: "男1体＋女1体", personality: "明るい・コミカル", personalityType: "A：明朗・活発型", age: "不明", look: "黒髪・人形2体", species: "人形（Puppets）", color: "赤/青/黒", tempo: "普通〜速め", music: "テクノ・コミカル", note: "テクノ・コミカル担当の人形", wiki: "", score: 0},
-    {name: "おとこマン", gender: "男", personality: "豪快・コミカル", personalityType: "D：強気・個性型", age: "成人", look: "筋肉質・コミカル", species: "人間", color: "赤/青/黄", tempo: "速め", music: "ロック・コミカル", note: "ロック・コミカル担当の筋肉キャラ", wiki: "", score: 0},
-    {name: "ヤード6世", gender: "男", personality: "温厚・花好き", personalityType: "B：穏やか・自由型", age: "成人", look: "動物・コミカル", species: "アリクイ", color: "茶/緑/白", tempo: "普通", music: "民族・フォーク", note: "民族・フォーク担当のアリクイ", wiki: "", score: 0},
-    {name: "ユン", gender: "男", personality: "元気・素直", personalityType: "A：明朗・活発型", age: "10代", look: "中華風・少年", species: "人間", color: "赤/黄/白", tempo: "速め", music: "中華・ポップ", note: "中華・ポップ担当の少年", wiki: "", score: 0},
-    {name: "ワルドック", gender: "男", personality: "悪役気質・豪快・自信家", personalityType: "D：強気・個性型", age: "成人", look: "海賊風・片目覆い・フック", species: "人間", color: "青/黒/金", tempo: "普通〜速め", music: "ブルース・ラテン", note: "ブルース・ラテン担当の男性", wiki: "", score: 0},
-    {name: "スミレ", gender: "女", personality: "勝ち気・厳格・悪役志向", personalityType: "D：強気・個性型", age: "10代", look: "長いピンク髪・制服・軍団長風", species: "人間", color: "ピンク/黒/白", tempo: "速め", music: "ポップ・エレクトロ", note: "ポップ・エレクトロ担当の少女", wiki: "", score: 0},
-    {name: "ウオヲ", gender: "男", personality: "陽気・豪快", personalityType: "D：強気・個性型", age: "成人", look: "魚・コミカル", species: "魚系人外", color: "青/黄", tempo: "速め", music: "ラテン・コミカル", note: "ラテン・コミカル担当の魚キャラ", wiki: "", score: 0},
-    {name: "ナナ", gender: "不明", personality: "穏やか・平和主義", personalityType: "B：穏やか・自由型", age: "動物", look: "白いハト・小動物的", species: "ハト", color: "白/緑", tempo: "普通〜遅め", music: "ポップ・アンビエント", note: "ポップ・アンビエント担当のハト", wiki: "", score: 0},
-    {name: "ナンシー", gender: "女", personality: "活発・快活", personalityType: "A：明朗・活発型", age: "若者", look: "スポーティー・ポップ", species: "人間", color: "黄/赤/青", tempo: "速め", music: "ダンス・ポップ", note: "ダンス・ポップ担当のお姉さん", wiki: "", score: 0},
-    {name: "ニナ", gender: "女", personality: "おっとり・上品", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・清楚", species: "人間", color: "白/青", tempo: "普通", music: "ポップ・ワルツ", note: "ポップ・ワルツ担当の上品な少女", wiki: "", score: 0},
-    {name: "ペペ", gender: "男", personality: "優しい・寂しがり・真面目", personalityType: "B：穏やか・自由型", age: "子供", look: "白いペンギン・神父見習い風", species: "ペンギン", color: "黒/白/青", tempo: "普通", music: "アンセム・宗教音楽", note: "アンセム・宗教音楽担当のペンギン", wiki: "", score: 0},
-    {name: "プリンスM", gender: "男", personality: "愛情深い・ロマンチスト", personalityType: "B：穏やか・自由型", age: "成人", look: "王子・コミカル", species: "宇宙人/人外系", color: "紫/白/金", tempo: "普通", music: "ラウンジ・ポップ", note: "ラウンジ・ポップ担当の宇宙人王子", wiki: "", score: 0},
-    {name: "シャラ", gender: "女", personality: "華やか・快活", personalityType: "A：明朗・活発型", age: "若者", look: "ダンサー・スタイリッシュ", species: "人間", color: "赤/金/黒", tempo: "速め", music: "ダンス・ラテン", note: "ダンス・ラテン担当のダンサー", wiki: "", score: 0},
-    {name: "ヨシオ", gender: "男", personality: "熱血・忍者好き・素直", personalityType: "D：強気・個性型", age: "10代", look: "忍者風・少年", species: "人間／忍者", color: "緑/黒/赤", tempo: "速め", music: "ポップ・和風コミカル", note: "ポップ・和風コミカル担当の少年", wiki: "", score: 0},
-    {name: "ユンタ", gender: "男", personality: "おおらか・素直", personalityType: "B：穏やか・自由型", age: "10代", look: "少年・民族風", species: "人間", color: "茶/黄/緑", tempo: "普通", music: "民族・ポップ", note: "民族・ポップ担当の少年", wiki: "", score: 0},
-    {name: "マリィ", gender: "女", personality: "大人っぽい・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "美人・都会的", species: "人間", color: "黒/赤/白", tempo: "普通", music: "ジャズ・ポップ", note: "ジャズ・ポップ担当の女性", wiki: "", score: 0},
-    {name: "クラフト", gender: "男", personality: "職人気質・穏やか", personalityType: "B：穏やか・自由型", age: "成人", look: "職人・コミカル", species: "人間", color: "茶/青/白", tempo: "普通", music: "ポップ・フォーク", note: "ポップ・フォーク担当の職人", wiki: "", score: 0},
-    {name: "オリビア", gender: "女", personality: "優雅・社交的", personalityType: "B：穏やか・自由型", age: "若者", look: "エレガント・美人", species: "人間", color: "紫/白/金", tempo: "普通", music: "ラウンジ・ディスコ", note: "ラウンジ・ディスコ担当の上品な女性", wiki: "", score: 0},
-    {name: "レイブガール", gender: "女", personality: "クール・自由奔放", personalityType: "B：穏やか・自由型", age: "若者", look: "クラブ系・スタイリッシュ", species: "人間", color: "黒/ピンク/蛍光", tempo: "速め", music: "レイヴ・テクノ", note: "レイヴ・テクノ担当の女性", wiki: "", score: 0},
-    {name: "バンブー", gender: "男", personality: "豪快・陽気", personalityType: "D：強気・個性型", age: "成人", look: "ワイルド・コミカル", species: "人間", color: "緑/黄/黒", tempo: "速め", music: "ロック・ジャズ", note: "ロック・ジャズ担当の男性", wiki: "", score: 0},
-    {name: "チャーリー", gender: "男", personality: "冷静・任務遂行型", personalityType: "C：冷静・知性型", age: "成人", look: "スパイ・クール", species: "人間", color: "黒/灰/白", tempo: "普通", music: "ジャズ・アクション", note: "ジャズ・アクション担当のスパイ", wiki: "", score: 0},
-    {name: "ディーノ", gender: "男", personality: "元気・遊び好き・いたずら好き", personalityType: "A：明朗・活発型", age: "少年", look: "小型の緑色の恐竜・赤い目・王冠や魔法の杖", species: "恐竜", color: "緑/赤/黄", tempo: "普通〜速め", music: "ファンタジー・マーチ・メルヘン", note: "ファンタジー・マーチ担当の恐竜", wiki: "", score: 0},
-    {name: "ドンモミー", gender: "男", personality: "陽気・気まま", personalityType: "B：穏やか・自由型", age: "成人", look: "コミカル・動物", species: "雄牛", color: "茶/赤/白", tempo: "速め", music: "ラテン・サンバ", note: "ラテン・サンバ担当の牛キャラ", wiki: "", score: 0},
-    {name: "キャンディ", gender: "女", personality: "明るい・おちゃめ", personalityType: "A：明朗・活発型", age: "10代", look: "かわいい・ポップ", species: "人間", color: "ピンク/黄/白", tempo: "速め", music: "ポップ・ガールズ", note: "ポップ・ガールズ担当の女の子", wiki: "", score: 0},
-    {name: "サイバー", gender: "男", personality: "クール・機械的", personalityType: "C：冷静・知性型", age: "若者", look: "メカ・未来的", species: "人間/サイバー系", color: "青/銀/黒", tempo: "速め", music: "テクノ・デジタル", note: "テクノ・デジタル担当の青年", wiki: "", score: 0},
-    {name: "ダイヤ", gender: "女", personality: "元気・前向き", personalityType: "A：明朗・活発型", age: "10代", look: "カラフル・かわいい", species: "人間", color: "赤/黄/青", tempo: "速め", music: "ポップ・ディスコ", note: "ポップ・ディスコ担当の少女", wiki: "", score: 0},
-    {name: "ドナ", gender: "女", personality: "大人っぽい・快活", personalityType: "A：明朗・活発型", age: "若者", look: "スタイリッシュ", species: "人間", color: "黒/赤/紫", tempo: "普通", music: "ディスコ・ポップ", note: "ディスコ・ポップ担当のお姉さん", wiki: "", score: 0},
-    {name: "ペロ", gender: "男", personality: "陽気・サービス精神旺盛・芸達者", personalityType: "A：明朗・活発型", age: "若者", look: "赤髪・舞台衣装・エンターテイナー風", species: "人間", color: "赤/黄/黒", tempo: "普通〜速め", music: "クラウン・パンク・舞台音楽", note: "クラウン・パンク担当の青年", wiki: "", score: 0},
-    {name: "めぐみ", gender: "女", personality: "おしゃま・一途", personalityType: "B：穏やか・自由型", age: "子供（小学生）", look: "茶髪・花飾り・魔法少女", species: "人間", color: "桃/白/黄", tempo: "普通〜速め", music: "魔法少女・ポップ", note: "魔法少女・ポップ担当の女の子", wiki: "", score: 0},
-    {name: "ピーワン&ピーツー", gender: "不明", personality: "元気・コミカル", personalityType: "A：明朗・活発型", age: "子供〜10代", look: "コミカル・ペアキャラ", species: "人間/マスコット系", color: "青/黄/赤", tempo: "速め", music: "ポップ・コミカル", note: "ポップ・コミカル担当のペア", wiki: "", score: 0},
-    {name: "神風トオル", gender: "男", personality: "熱血・一直線", personalityType: "D：強気・個性型", age: "若者", look: "ワイルド・ロック系", species: "人間", color: "黒/赤/白", tempo: "速め", music: "ロック・ラウド", note: "ロック・ラウド担当の熱血青年", wiki: "", score: 0},
-    {name: "ベル", gender: "女", personality: "上品・落ち着き", personalityType: "C：冷静・知性型", age: "若者", look: "フランス風・美人", species: "人間", color: "赤/紫/白", tempo: "遅め", music: "シャンソン・ラウンジ", note: "シャンソン・ラウンジ担当の女性", wiki: "", score: 0},
-    {name: "ケビン", gender: "男", personality: "おっとり・優しい", personalityType: "B：穏やか・自由型", age: "若者", look: "爽やか・少年青年風", species: "人間", color: "青/白", tempo: "普通", music: "ポップ・バラード", note: "ポップ・バラード担当の青年", wiki: "", score: 0},
-    {name: "リサ", gender: "女", personality: "明るい・快活", personalityType: "A：明朗・活発型", age: "若者", look: "ポップ・都会的", species: "人間", color: "ピンク/黒/白", tempo: "普通", music: "ポップ・ディスコ", note: "ポップ・ディスコ担当の女性", wiki: "", score: 0},
-    {name: "マコト", gender: "男", personality: "真面目・穏やか", personalityType: "C：冷静・知性型", age: "若者", look: "爽やか・学生風", species: "人間", color: "青/白/黒", tempo: "普通", music: "ポップ・ロック", note: "ポップ・ロック担当の青年", wiki: "", score: 0},
-    {name: "めばえ", gender: "男1体＋女1体", personality: "明るい・コミカル", personalityType: "A：明朗・活発型", age: "不明", look: "黒髪・人形2体", species: "人形（Puppets）", color: "赤/青/黒", tempo: "普通〜速め", music: "テクノ・コミカル", note: "テクノ・コミカル担当の人形", wiki: "", score: 0},
-    {name: "アヤ", gender: "女", personality: "活発・おてんば", personalityType: "A：明朗・活発型", age: "若者", look: "カラフル・元気", species: "人間", color: "黄/赤/青", tempo: "速め", music: "ポップ・ダンス", note: "ポップ・ダンス担当の女性", wiki: "", score: 0},
-    {name: "マッチュッチュ", gender: "不明", personality: "無邪気・コミカル", personalityType: "B：穏やか・自由型", age: "不明", look: "小動物的・コミカル", species: "不明/人外系", color: "黄/白", tempo: "速め", music: "コミカル・ポップ", note: "コミカル・ポップ担当のマスコット", wiki: "", score: 0},
-    {name: "ジェニファー", gender: "女", personality: "快活・行動的", personalityType: "A：明朗・活発型", age: "若者", look: "カラフル・ファッション系", species: "人間", color: "赤/青/黄", tempo: "速め", music: "ダンス・ポップ", note: "CSキャラクターのダンス・ポップ担当", wiki: "", score: 0},
-    {name: "？（ハテナ）", gender: "不明", personality: "無機質・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "黒い影・不定形", species: "精霊/影", color: "黒/紫", tempo: "速め", music: "テクノ・実験的", note: "MZDの影。テクノ・実験的担当", wiki: "https://popnmusic.fandom.com/wiki/Hatena", score: 0},
-    {name: "かおりん", gender: "女", personality: "恋愛観察好き・明るい", personalityType: "A：明朗・活発型", age: "若者", look: "かわいい・観察者風", species: "人間", color: "桃/白/茶", tempo: "普通", music: "ハッピーラブゲイザー・ポップ", note: "Wiki設定：人間、恋愛観察が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Kaorin", score: 0},
-    {name: "レオン", gender: "男", personality: "ミステリアス・クラブ好き・おしゃれ", personalityType: "D：強気・個性型", age: "子供〜10代", look: "ピンク髪・カメレオン風フード", species: "人間", color: "桃/黒/紫", tempo: "普通〜速め", music: "ディスコ・ダンス", note: "ディスコ・ダンス担当の青年", wiki: "https://popnmusic.fandom.com/ja/wiki/レオン", score: 0},
-    {name: "パク", gender: "男", personality: "おおらか・コミカル", personalityType: "B：穏やか・自由型", age: "成人", look: "動物的・コミカル", species: "人外系", color: "茶/黄", tempo: "速め", music: "ラテン・コミカル", note: "ラテン・コミカル担当", wiki: "https://popnmusic.fandom.com/ja/wiki/パク", score: 0},
-    {name: "エルム", gender: "女", personality: "不思議・悪夢的・コミカル", personalityType: "D：強気・個性型", age: "不明", look: "ピンク＆シアン髪・角・三つ目・蹄", species: "キメラ", color: "水色/桃/黒", tempo: "普通〜速め", music: "ダーク・ファンタジー・エレクトロ", note: "ダーク・ファンタジー担当のキメラ", wiki: "https://popnmusic.fandom.com/ja/wiki/エルム", score: 0},
-    {name: "ニア", gender: "女", personality: "内気・繊細", personalityType: "C：冷静・知性型", age: "10代", look: "中性的・幻想的", species: "人間", color: "紫/白/黒", tempo: "遅め", music: "エレクトロ・幻想", note: "Wiki設定：人間、対人が苦手。", wiki: "https://popnmusic.fandom.com/wiki/Nia", score: 0},
-    {name: "アカツキ", gender: "男", personality: "穏やか・自然を愛する", personalityType: "B：穏やか・自由型", age: "成人", look: "白髪・黄色い目・神秘的", species: "神（God）", color: "白/金/赤", tempo: "普通〜遅め", music: "自然・幻想・エスニック", note: "自然・幻想・エスニック担当の神", wiki: "", score: 0},
-    {name: "アーク", gender: "男", personality: "若者・冒険心旺盛", personalityType: "A：明朗・活発型", age: "不明", look: "銀髪・細身・エルフ・青い目", species: "エルフ", color: "銀/青/白", tempo: "普通〜速め", music: "ファンタジー・幻想・民族音楽", note: "ファンタジー・幻想担当のエルフ", wiki: "", score: 0},
-    {name: "メリッサ", gender: "女", personality: "勝ち気・冒険好き・活発", personalityType: "D：強気・個性型", age: "若者", look: "金髪ロング三つ編み・エルフ・騎士風", species: "エルフ", color: "金/青/銀", tempo: "速め", music: "ファンタジー・冒険・クラシック", note: "ファンタジー・冒険担当のエルフ騎士", wiki: "", score: 0},
+    {name: "タイマー", gender: "男", personality: "華やか・サービス精神旺盛", personalityType: "B：穏やか・自由型", age: "若者", look: "アイドル・スタイリッシュ", species: "人間", color: "茶/赤/白", tempo: "速め", music: "アイドル・ポップ", note: "Wiki設定：歌手・モデル・ファッションデザイナー。", wiki: "https://popnmusic.fandom.com/wiki/Timer", score: 0},
+    {name: "スマイル", gender: "男", personality: "飄々・いたずら好き", personalityType: "B：穏やか・自由型", age: "若者", look: "ミステリアス・細身", species: "透明人間", color: "青/紫", tempo: "普通", music: "ヴィジュアル・ロック", note: "Wiki設定：透明人間、Deuilのベーシスト。", wiki: "https://popnmusic.fandom.com/ja/wiki/スマイル", score: 0},
+    {name: "アイス", gender: "男", personality: "素直・おだやか", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・少年風", species: "人間", color: "青/白", tempo: "普通", music: "ラウンジ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%A2%E3%82%A4%E3%82%B9", score: 0},
+    {name: "ポエット", gender: "女", personality: "優しい・好奇心旺盛", personalityType: "B：穏やか・自由型", age: "子供", look: "かわいい・天使的", species: "天使", color: "黄/水色/白", tempo: "普通", music: "ケルト・ファンタジー", note: "Wiki設定：天使。空を歩き、トランペットが趣味。", wiki: "https://popnmusic.fandom.com/wiki/Poet", score: 0},
+    {name: "ショルキー", gender: "男", personality: "クール・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "スタイリッシュ・長身", species: "人間", color: "黒/紫", tempo: "普通", music: "ポップ・ファンク", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B7%E3%83%A7%E3%83%AB%E3%82%AD%E3%83%BC", score: 0},
+    {name: "ジズ", gender: "男", personality: "神秘的・礼儀正しい・人形好き", personalityType: "C：冷静・知性型", age: "成人", look: "仮面の紳士・不気味で優雅", species: "幽霊／ファントム", color: "黒/赤/金/白", tempo: "普通〜遅め", music: "ダーク・幻想・クラシック系", note: "Fandom「Zizz」参照。性別=Male、種族=Phantom。ヴェネツィア出身。人形作りが趣味。代表曲はDarkness系。テンポ・曲調は代表曲からの分類。", wiki: "https://popnmusic.fandom.com/wiki/Zizz", score: 0},
+    {name: "アルフォンス・ミシェル", gender: "男", personality: "知的・物静か", personalityType: "C：冷静・知性型", age: "成人", look: "美形・貴族的", species: "人間/天使?", color: "黒/青/黄", tempo: "遅め", music: "クラシック・幻想系", note: "Wikiでは種族がHuman, Angel(?)と記載。", wiki: "https://popnmusic.fandom.com/wiki/Alphonse_Michel", score: 0},
+    {name: "Mr.KK", gender: "男", personality: "真面目・クール", personalityType: "B：穏やか・自由型", age: "成人", look: "都会的・渋い", species: "人間", color: "青/茶/黒", tempo: "普通", music: "パーカッシブ・アーバンロック", note: "Wiki設定：清掃員。裏の顔として狙撃手設定あり。", wiki: "https://popnmusic.fandom.com/wiki/Mr._KK", score: 0},
+    {name: "ナカジ", gender: "男", personality: "ぶっきらぼう・仲間思い", personalityType: "B：穏やか・自由型", age: "10代", look: "クール・少年", species: "人間", color: "青/黒", tempo: "速め", music: "ロック・パンク", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8A%E3%82%AB%E3%82%B8", score: 0},
+    {name: "ハヤト", gender: "男", personality: "元気・真面目", personalityType: "A：明朗・活発型", age: "10代", look: "スポーティー・少年", species: "人間", color: "青/黄", tempo: "速め", music: "ロック・ポップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8F%E3%83%A4%E3%83%88", score: 0},
+    {name: "リゼット", gender: "女", personality: "おっとり・優しい", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・清楚", species: "人間", color: "ピンク/白", tempo: "普通", music: "ポップ・ガーリー", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AA%E3%82%BC%E3%83%83%E3%83%88", score: 0},
+    {name: "ムラサキ", gender: "女", personality: "芯が強い・職人気質", personalityType: "B：穏やか・自由型", age: "若者", look: "和風・艶やか", species: "人間", color: "紫/黒/赤", tempo: "普通", music: "三味線・和風", note: "Wiki設定：人間、三味線・裁縫が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Murasaki", score: 0},
+    {name: "スギくん", gender: "男", personality: "爽やか・音楽好き", personalityType: "B：穏やか・自由型", age: "若者", look: "バンドマン・爽やか", species: "人間", color: "緑/白", tempo: "普通", music: "ロック・ポップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B9%E3%82%AE%E3%81%8F%E3%82%93", score: 0},
+    {name: "カジカ", gender: "男", personality: "探究心旺盛・神秘的", personalityType: "C：冷静・知性型", age: "10代", look: "金髪・洞窟探検家風・少年", species: "人間", color: "金/橙/青/白", tempo: "普通〜速め", music: "幻想・ロック・トランス", note: "指定Wiki参照：男性・人間。カルスト台地出身、5月10日生まれ。未踏の洞窟探検が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Kajika", score: 0},
+    {name: "ロキ", gender: "女", personality: "誇り高い・短気・家族思い", personalityType: "D：強気・個性型", age: "少女〜青年（作品・衣装で変化）", look: "灰色の髪・濃緑の目・紫がかった肌。白いブラウス／白いドレスなど", species: "魔女", color: "灰/白/紫/深緑", tempo: "普通〜速め", music: "ゴシック・エレゴシック・ダーク系", note: "Wiki設定：女性の魔女。アイスランド出身。家族や歌、故郷に誇りを持ち、短気な一面がある。旧データを指定Wikiに基づき修正。", wiki: "https://popnmusic.fandom.com/wiki/Roki", score: 0},
+    {name: "ロッテ", gender: "女", personality: "元気・おちゃめ", personalityType: "A：明朗・活発型", age: "子供〜10代", look: "かわいい・小柄", species: "人間", color: "ピンク/赤", tempo: "速め", music: "ポップ・キュート", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AD%E3%83%83%E3%83%86", score: 0},
+    {name: "ミルク", gender: "女", personality: "明るい・おっとり", personalityType: "B：穏やか・自由型", age: "子供", look: "かわいい・動物系", species: "人間", color: "白/ピンク", tempo: "普通", music: "キュート・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9F%E3%83%AB%E3%82%AF", score: 0},
+    {name: "ミニッツ", gender: "女", personality: "元気・アイドル気質", personalityType: "A：明朗・活発型", age: "10代", look: "かわいい・アイドル", species: "人間", color: "ピンク/白", tempo: "速め", music: "アイドル・ポップ", note: "Wiki設定：タイマーの妹。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9F%E3%83%8B%E3%83%83%E3%83%84", score: 0},
+    {name: "リンリン", gender: "女", personality: "おおらか・食いしん坊", personalityType: "B：穏やか・自由型", age: "10代", look: "中華風・かわいい", species: "人間", color: "青/赤", tempo: "普通", music: "中華・ポップ", note: "Wiki設定：香港出身、パンダグッズ好き。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AA%E3%83%B3%E3%83%AA%E3%83%B3", score: 0},
+    {name: "シャルロット", gender: "女", personality: "上品・おっとり", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・フランス風", species: "人間", color: "金/青/白", tempo: "普通", music: "ワルツ・クラシック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%AD%E3%83%83%E3%83%88", score: 0},
+    {name: "シルビア", gender: "女", personality: "クール・大人びた", personalityType: "B：穏やか・自由型", age: "若者", look: "スタイリッシュ・美人", species: "人間", color: "紫/黒", tempo: "普通", music: "ジャズ・ラウンジ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B7%E3%83%AB%E3%83%93%E3%82%A2", score: 0},
+    {name: "ユリちゃん", gender: "女", personality: "少し内気・がんばり屋", personalityType: "B：穏やか・自由型", age: "若者", look: "そばかす・茶髪ツインテール・眼鏡", species: "人間", color: "茶/ピンク/シアン/白", tempo: "普通", music: "ガールズポップ・ジェットコースターポップ", note: "指定Wiki参照：女性・人間。日本出身、5月23日生まれ。美容師に憧れ修業中。リエ♥ちゃん・さなえ♥ちゃんと友人。", wiki: "https://popnmusic.fandom.com/wiki/Yuri*chan", score: 0},
+    {name: "桔梗", gender: "女", personality: "凛としている・穏やか", personalityType: "B：穏やか・自由型", age: "若者", look: "和風・美人", species: "人間", color: "紫/白", tempo: "普通〜遅め", music: "和風・幻想", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E6%A1%94%E6%A2%97", score: 0},
+    {name: "虹野ひかり", gender: "女", personality: "明るい・社交的", personalityType: "A：明朗・活発型", age: "10代", look: "アイドル・カラフル", species: "人間", color: "ピンク/青/白", tempo: "速め", music: "ラブリー・アイドル", note: "Wiki設定：人間、虹っ子メンバー。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E8%99%B9%E9%87%8E%E3%81%B2%E3%81%8B%E3%82%8A", score: 0},
+    {name: "夢野みらい", gender: "女", personality: "内気・優しい・怖がり", personalityType: "B：穏やか・自由型", age: "10代", look: "アイドル・かわいい", species: "人間", color: "水色/ピンク/黄", tempo: "普通", music: "ラブリー・ポップ", note: "Wiki設定：人間、虹っ子メンバー。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E5%A4%A2%E9%87%8E%E3%81%BF%E3%82%89%E3%81%84", score: 0},
+    {name: "ハジメ", gender: "男", personality: "真面目・熱血", personalityType: "D：強気・個性型", age: "10代", look: "スポーティー・少年", species: "人間", color: "青/赤/白", tempo: "速め", music: "ロック・ポップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8F%E3%82%B8%E3%83%A1", score: 0},
+    {name: "DTO", gender: "男", personality: "豪快・先生気質", personalityType: "D：強気・個性型", age: "成人", look: "コミカル・大柄", species: "人間", color: "茶/赤/黒", tempo: "速め", music: "ハードロック・パンク", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/DTO", score: 0},
+    {name: "ヒュー", gender: "男", personality: "クール・寡黙", personalityType: "C：冷静・知性型", age: "若者", look: "美形・クール", species: "人間", color: "青/黒", tempo: "普通〜速め", music: "ロック・ダンス", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%92%E3%83%A5%E3%83%BC", score: 0},
+    {name: "ジェイド", gender: "男", personality: "落ち着いている・神秘的", personalityType: "C：冷静・知性型", age: "若者", look: "美形・幻想的", species: "人間/異世界系", color: "緑/黒/青", tempo: "普通", music: "幻想・エレクトロ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B8%E3%82%A7%E3%82%A4%E3%83%89", score: 0},
+    {name: "鹿ノ子", gender: "女", personality: "活発・かわいらしい・芯が強い", personalityType: "A：明朗・活発型", age: "10代", look: "和風・鹿モチーフ・華やか", species: "人間", color: "赤/桃/黄緑/黒", tempo: "速め", music: "和風・ナデシコロック", note: "指定Wiki参照：女性・人間。pop'n music 15 ADVENTURE登場。キャラクター紹介・代表曲から和風系として分類。", wiki: "https://popnmusic.fandom.com/wiki/Kanoko", score: 0},
+    {name: "つらら", gender: "女", personality: "元気・勝ち気", personalityType: "D：強気・個性型", age: "10代", look: "冬・スポーティー", species: "人間", color: "水色/白", tempo: "速め", music: "ハッピーハードコア・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%81%A3%E3%82%89%E3%82%89", score: 0},
+    {name: "鈴花", gender: "女", personality: "明るい・負けず嫌い", personalityType: "A：明朗・活発型", age: "10代", look: "中華風・元気", species: "人間", color: "赤/桃/白", tempo: "速め", music: "中華・ガールズポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E9%88%B4%E8%8A%B1", score: 0},
+    {name: "烈", gender: "男", personality: "熱血・直情的", personalityType: "D：強気・個性型", age: "10代", look: "和風・ロック系", species: "人間", color: "赤/黒", tempo: "速め", music: "ロック・ヒップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E7%83%88", score: 0},
+    {name: "風雅", gender: "男", personality: "冷静・やさしい", personalityType: "C：冷静・知性型", age: "10代", look: "和風・スタイリッシュ", species: "人間", color: "青/白", tempo: "普通〜速め", music: "ロック・幻想", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E9%A2%A8%E9%9B%85", score: 0},
+    {name: "氷海", gender: "男", personality: "クール・寡黙", personalityType: "C：冷静・知性型", age: "10代", look: "中性的・冷たい印象", species: "人間", color: "水色/青/白", tempo: "普通", music: "クラシック・幻想", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E6%B0%B7%E6%B5%B7", score: 0},
+    {name: "文彦", gender: "男", personality: "知的・落ち着き", personalityType: "C：冷静・知性型", age: "若者", look: "眼鏡・文系", species: "人間", color: "青/茶", tempo: "普通", music: "ジャズ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E6%96%87%E5%BD%A6", score: 0},
+    {name: "乱麻", gender: "女", personality: "武道家気質・凛々しい・一途", personalityType: "B：穏やか・自由型", age: "若者", look: "金髪・武道家風・凛々しい", species: "人間", color: "青/白/金", tempo: "速め", music: "和風・ロック・舞楽", note: "指定Wiki参照：女性・人間。西横町（日本）出身、2月27日生まれ。古武術全般が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Ranma", score: 0},
+    {name: "アリシア", gender: "女", personality: "おっとり・上品", personalityType: "B：穏やか・自由型", age: "10代", look: "幻想的・かわいい", species: "人間/妖精系", color: "青/白/金", tempo: "普通〜遅め", music: "ファンタジー・クラシック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%A2%E3%83%AA%E3%82%B7%E3%82%A2", score: 0},
+    {name: "モイモイ", gender: "女", personality: "明るい・ふわふわ・愛らしい", personalityType: "A：明朗・活発型", age: "若者", look: "薄灰色の髪・大きなリボン・和風ロリータ", species: "人間", color: "ライトグレー/黒/ピンク/白", tempo: "速め", music: "和風・エレクトロポップ", note: "指定Wiki参照：女性・人間。理想郷出身、9月19日生まれ。趣味はダンス、歌うことが好き、キュウリが苦手。", wiki: "https://popnmusic.fandom.com/wiki/Moi_Moi", score: 0},
+    {name: "ALT", gender: "女", personality: "明るい・アイドル気質", personalityType: "A：明朗・活発型", age: "若者", look: "ロボット・電子アイドル", species: "コンピュータヒューマノイド", color: "白/橙/桃", tempo: "速め", music: "テクノ・デジタルポップ", note: "Wiki設定：Computer Humanoid、歌うコンピューター電子アイドル。", wiki: "https://popnmusic.fandom.com/wiki/Alt", score: 0},
+    {name: "パピルス", gender: "男", personality: "陽気・快活・いたずら好き", personalityType: "B：穏やか・自由型", age: "少年〜青年", look: "小柄な少年風・紫系の衣装", species: "精霊", color: "紫/白/青", tempo: "普通〜速め", music: "ポップ・ファンタジー", note: "指定Wikiページを参照。種族は精霊。骨ではなく、人間でもない。", wiki: "https://popnmusic.fandom.com/wiki/Papyrus", score: 0},
+    {name: "ししゃも", gender: "不明", personality: "のんびり・自由", personalityType: "B：穏やか・自由型", age: "子供〜動物", look: "かわいい・猫", species: "ネコ", color: "白/茶", tempo: "普通", music: "キュート・ポップ", note: "Wiki上の猫キャラクター。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%81%97%E3%81%97%E3%82%83%E3%82%82", score: 0},
+    {name: "リュータ", gender: "男", personality: "元気・スポーツ好き", personalityType: "A：明朗・活発型", age: "10代", look: "少年・スポーティー", species: "人間", color: "赤/青", tempo: "速め", music: "ロック・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%BF", score: 0},
+    {name: "しろろ", gender: "男", personality: "おっとり・素直", personalityType: "B：穏やか・自由型", age: "子供", look: "かわいい・小動物的", species: "人間/人外系", color: "白/水色", tempo: "普通", music: "ファンタジー・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%81%97%E3%82%8D%E3%82%8D", score: 0},
+    {name: "ニュー・ミュー", gender: "女", personality: "明るい・不思議", personalityType: "A：明朗・活発型", age: "10代", look: "猫耳・かわいい", species: "人間/ネコ系", color: "黄/白/桃", tempo: "速め", music: "キュート・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%BB%E3%83%9F%E3%83%A5%E3%83%BC", score: 0},
+    {name: "めばえ", gender: "男1体＋女1体", personality: "明るい・コミカル", personalityType: "B：穏やか・自由型", age: "不明", look: "黒髪・人形2体", species: "人形（Puppets）", color: "黒/白/赤", tempo: "普通", music: "テクノ・コミカル", note: "Wiki設定：男女1体ずつの人形。日本出身。誕生日6月1日。ジズが操り手。趣味は社交ダンスと通販で家電を買うこと。", wiki: "https://popnmusic.fandom.com/wiki/Mebae", score: 0},
+    {name: "おとこマン", gender: "男", personality: "豪快・コミカル", personalityType: "D：強気・個性型", age: "成人", look: "筋肉質・コミカル", species: "人間", color: "赤/黄", tempo: "速め", music: "ロック・コミカル", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%81%8A%E3%81%A8%E3%81%93%E3%83%9E%E3%83%B3", score: 0},
+    {name: "ヤード6世", gender: "男", personality: "温厚・花好き", personalityType: "B：穏やか・自由型", age: "成人", look: "動物・コミカル", species: "アリクイ", color: "茶/白", tempo: "普通", music: "民族・フォーク", note: "Wiki設定：アリクイ、花好き。", wiki: "https://popnmusic.fandom.com/wiki/Yard_the_6th", score: 0},
+    {name: "ワルドック", gender: "男", personality: "悪役気質・豪快・自信家", personalityType: "D：強気・個性型", age: "成人", look: "海賊風・片目覆い・フック", species: "人間", color: "水色/赤/白/灰", tempo: "普通〜速め", music: "ブルース・ラテン", note: "Wiki設定：男性・人間。10月19日生まれ。世界征服を企む悪役で、ワルドックロボの製造・販売を好む。外見は海賊風。", wiki: "https://popnmusic.fandom.com/wiki/Warudoc", score: 0},
+    {name: "スミレ", gender: "女", personality: "勝ち気・厳格・悪役志向", personalityType: "D：強気・個性型", age: "10代", look: "長いピンク髪・制服・軍団長風", species: "人間", color: "ピンク/灰/黄/赤", tempo: "普通", music: "ポップ・エレクトロ", note: "Wiki設定：14歳。人間。クロミミウサギ隊を率い、宇宙の平和を乱すことに情熱を注ぐ。ラーメン店巡りが好き。", wiki: "https://popnmusic.fandom.com/wiki/Sumire", score: 0},
+    {name: "ウオヲ", gender: "男", personality: "陽気・豪快", personalityType: "D：強気・個性型", age: "成人", look: "魚・コミカル", species: "魚系人外", color: "青/黄", tempo: "速め", music: "ラテン・コミカル", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%A2%E3%82%AA%E3%83%B2", score: 0},
+    {name: "ナナ", gender: "不明", personality: "穏やか・平和主義", personalityType: "B：穏やか・自由型", age: "動物", look: "白いハト・小動物的", species: "ハト", color: "白/灰", tempo: "普通", music: "ポップ・アンビエント", note: "Wiki設定：性別は不明（どちらでもあり得る）。種族はDove（ハト）。井の頭公園が生息地。趣味はLove&Peace。", wiki: "https://popnmusic.fandom.com/wiki/Nana", score: 0},
+    {name: "ナンシー", gender: "女", personality: "活発・快活", personalityType: "A：明朗・活発型", age: "若者", look: "スポーティー・ポップ", species: "人間", color: "赤/青", tempo: "速め", music: "ダンス・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8A%E3%83%B3%E3%82%B7%E3%83%BC", score: 0},
+    {name: "ニナ", gender: "女", personality: "おっとり・上品", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・清楚", species: "人間", color: "桃/白/青", tempo: "普通", music: "ポップ・ワルツ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8B%E3%83%8A", score: 0},
+    {name: "ペペ", gender: "男", personality: "優しい・寂しがり・真面目", personalityType: "B：穏やか・自由型", age: "子供", look: "白いペンギン・神父見習い風", species: "ペンギン", color: "白/青/黒", tempo: "普通〜遅め", music: "アンセム・宗教音楽", note: "指定Wiki参照：男性・Penguin。ローマ出身、5月12日生まれ。教会掃除と杖磨きが趣味。神父のもとで修行中。", wiki: "https://popnmusic.fandom.com/wiki/PePe", score: 0},
+    {name: "プリンスM", gender: "男", personality: "愛情深い・ロマンチスト", personalityType: "B：穏やか・自由型", age: "成人", look: "王子・コミカル", species: "宇宙人/人外系", color: "桃/白/青", tempo: "普通", music: "ラウンジ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B9M", score: 0},
+    {name: "シャラ", gender: "女", personality: "華やか・快活", personalityType: "A：明朗・活発型", age: "若者", look: "ダンサー・スタイリッシュ", species: "人間", color: "紫/桃/青", tempo: "速め", music: "ダンス・ラテン", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B7%E3%83%A3%E3%83%A9", score: 0},
+    {name: "ヨシオ", gender: "男", personality: "熱血・忍者好き・素直", personalityType: "D：強気・個性型", age: "10代", look: "忍者風・少年", species: "人間／忍者", color: "赤/白/黒", tempo: "速め", music: "ポップ・和風コミカル", note: "Wiki設定：男性・Human, ninja。隠れ里出身。シノビアンのグッズ収集が趣味、卓球とふりかけ（のりたま）が好き。", wiki: "https://popnmusic.fandom.com/wiki/Yoshio", score: 0},
+    {name: "ユンタ", gender: "男", personality: "おおらか・素直", personalityType: "B：穏やか・自由型", age: "10代", look: "少年・民族風", species: "人間", color: "緑/黄", tempo: "普通〜速め", music: "民族・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%A6%E3%83%B3%E3%82%BF", score: 0},
+    {name: "マリィ", gender: "女", personality: "大人っぽい・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "美人・都会的", species: "人間", color: "赤/黒", tempo: "普通", music: "ジャズ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9E%E3%83%AA%E3%82%A3", score: 0},
+    {name: "クラフト", gender: "男", personality: "職人気質・穏やか", personalityType: "B：穏やか・自由型", age: "成人", look: "職人・コミカル", species: "人間", color: "茶/黄", tempo: "普通", music: "ポップ・フォーク", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%AF%E3%83%A9%E3%83%95%E3%83%88", score: 0},
+    {name: "オリビア", gender: "女", personality: "優雅・社交的", personalityType: "A：明朗・活発型", age: "若者", look: "エレガント・美人", species: "人間", color: "紫/白/金", tempo: "普通", music: "ラウンジ・ディスコ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%AA%E3%83%AA%E3%83%93%E3%82%A2", score: 0},
+    {name: "レイブガール", gender: "女", personality: "クール・自由奔放", personalityType: "B：穏やか・自由型", age: "若者", look: "クラブ系・スタイリッシュ", species: "人間", color: "黒/赤/青", tempo: "速め", music: "レイヴ・テクノ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AC%E3%82%A4%E3%83%96%E3%82%AC%E3%83%BC%E3%83%AB", score: 0},
+    {name: "バンブー", gender: "男", personality: "豪快・陽気", personalityType: "D：強気・個性型", age: "成人", look: "ワイルド・コミカル", species: "人間", color: "緑/黄", tempo: "速め", music: "ロック・ジャズ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%90%E3%83%B3%E3%83%96%E3%83%BC", score: 0},
+    {name: "チャーリー", gender: "男", personality: "冷静・任務遂行型", personalityType: "C：冷静・知性型", age: "成人", look: "スパイ・クール", species: "人間", color: "黒/灰/青", tempo: "普通", music: "ジャズ・アクション", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%81%E3%83%A3%E3%83%BC%E3%83%AA%E3%83%BC", score: 0},
+    {name: "ディーノ", gender: "男", personality: "元気・遊び好き・いたずら好き", personalityType: "B：穏やか・自由型", age: "少年", look: "小型の緑色の恐竜・赤い目・王冠や魔法の杖", species: "恐竜", color: "緑/赤/黄/紫", tempo: "普通〜速め", music: "ファンタジー・マーチ・メルヘン", note: "Wiki設定：メルヘン王国の王子。150cmのベビーダイナソー。ビデオゲーム好きで、勉強より遊ぶことが好き。", wiki: "https://popnmusic.fandom.com/wiki/Dino", score: 0},
+    {name: "キャンディ", gender: "女", personality: "明るい・おちゃめ", personalityType: "A：明朗・活発型", age: "10代", look: "かわいい・ポップ", species: "人間", color: "桃/黄", tempo: "速め", music: "ポップ・ガールズ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%87%E3%82%A3", score: 0},
+    {name: "サイバー", gender: "男", personality: "クール・機械的", personalityType: "B：穏やか・自由型", age: "若者", look: "メカ・未来的", species: "人間/サイバー系", color: "青/銀/黒", tempo: "速め", music: "テクノ・デジタル", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC", score: 0},
+    {name: "ドナ", gender: "女", personality: "大人っぽい・快活", personalityType: "A：明朗・活発型", age: "若者", look: "スタイリッシュ", species: "人間", color: "赤/黒/白", tempo: "普通", music: "ディスコ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%89%E3%83%8A", score: 0},
+    {name: "ペロ", gender: "男", personality: "陽気・サービス精神旺盛・芸達者", personalityType: "A：明朗・活発型", age: "若者", look: "赤髪・舞台衣装・エンターテイナー風", species: "人間", color: "赤/黄/白/黒", tempo: "普通〜速め", music: "クラウン・パンク・舞台音楽", note: "指定Wiki参照：男性・Human。サンフランシスコ出身、10月6日生まれ。パントマイムが趣味。舞台で観客を笑顔にするエンターテイナー。", wiki: "https://popnmusic.fandom.com/wiki/Pelo", score: 0},
+    {name: "ピーワン&ピーツー", gender: "不明", personality: "元気・コミカル", personalityType: "B：穏やか・自由型", age: "子供〜10代", look: "コミカル・ペアキャラ", species: "人間/マスコット系", color: "青/赤/黄", tempo: "速め", music: "ポップ・コミカル", note: "2人組キャラクターとして分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%94%E3%83%BC%E3%83%AF%E3%83%B3%26%E3%83%94%E3%83%BC%E3%83%84%E3%83%BC", score: 0},
+    {name: "神風トオル", gender: "男", personality: "熱血・一直線", personalityType: "D：強気・個性型", age: "若者", look: "ワイルド・ロック系", species: "人間", color: "赤/黒", tempo: "速め", music: "ロック・ラウド", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E7%A5%9E%E9%A2%A8%E3%83%88%E3%82%AA%E3%83%AB", score: 0},
+    {name: "ベル", gender: "女", personality: "上品・落ち着き", personalityType: "B：穏やか・自由型", age: "若者", look: "フランス風・美人", species: "人間", color: "紫/白/青", tempo: "普通〜遅め", music: "シャンソン・ラウンジ", note: "リエ・さなえとフランスで友人になった設定あり。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%99%E3%83%AB", score: 0},
+    {name: "リサ", gender: "女", personality: "明るい・快活", personalityType: "A：明朗・活発型", age: "若者", look: "ポップ・都会的", species: "人間", color: "赤/桃", tempo: "普通", music: "ポップ・ディスコ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AA%E3%82%B5", score: 0},
+    {name: "マコト", gender: "男", personality: "真面目・穏やか", personalityType: "B：穏やか・自由型", age: "若者", look: "爽やか・学生風", species: "人間", color: "青/緑", tempo: "普通", music: "ポップ・ロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9E%E3%82%B3%E3%83%88", score: 0},
+    {name: "アヤ", gender: "女", personality: "活発・おてんば", personalityType: "A：明朗・活発型", age: "若者", look: "カラフル・元気", species: "人間", color: "赤/黄/青", tempo: "速め", music: "ポップ・ダンス", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%A2%E3%83%84", score: 0},
+    {name: "マッチュッチュ", gender: "不明", personality: "無邪気・コミカル", personalityType: "B：穏やか・自由型", age: "不明", look: "小動物的・コミカル", species: "不明/人外系", color: "黄/赤/白", tempo: "速め", music: "コミカル・ポップ", note: "Fandom上のキャラクター名を確認。詳細設定は限定的。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9E%E3%83%83%E3%83%81%E3%83%A5%E3%83%83%E3%83%81%E3%83%A5", score: 0},
+    {name: "ジェニファー", gender: "女", personality: "快活・行動的", personalityType: "A：明朗・活発型", age: "若者", look: "カラフル・ファッション系", species: "人間", color: "黄/赤/青", tempo: "速め", music: "ダンス・ポップ", note: "CSキャラクターとして掲載。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B8%E3%82%A7%E3%83%8B%E3%83%95%E3%82%A1%E3%83%BC", score: 0},
+    {name: "？（ハテナ）", gender: "不明", personality: "無機質・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "黒い影・不定形", species: "精霊/影", color: "黒/白", tempo: "速め", music: "テクノ・実験的", note: "FandomではHatena（？）表記。MZDの影。", wiki: "https://popnmusic.fandom.com/wiki/Hatena", score: 0},
+    {name: "かおりん", gender: "女", personality: "恋愛観察好き・明るい", personalityType: "A：明朗・活発型", age: "若者", look: "かわいい・観察者風", species: "人間", color: "茶/白/桃", tempo: "普通", music: "ハッピーラブゲイザー・ポップ", note: "Wiki設定：人間、恋愛観察が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Kaorin", score: 0},
+    {name: "レオン", gender: "男", personality: "ミステリアス・クラブ好き・おしゃれ", personalityType: "C：冷静・知性型", age: "子供〜10代", look: "ピンク髪・カメレオン風フード", species: "人間", color: "シアン/黄/紺/ピンク", tempo: "速め", music: "ディスコ・ダンス", note: "Wiki設定：男性・人間。東京出身。クラブ通いと買い物が趣味。カメレオン好きで、フードの目を使った小さな魔法を操る。代表曲はBUBBLY DISCO系。", wiki: "https://popnmusic.fandom.com/wiki/Leon", score: 0},
+    {name: "パク", gender: "男", personality: "おおらか・コミカル", personalityType: "B：穏やか・自由型", age: "成人", look: "動物的・コミカル", species: "人外系", color: "黄/茶", tempo: "普通〜速め", music: "ラテン・コミカル", note: "Fandomキャラクターとして確認。詳細設定は限定的。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%91%E3%82%AF", score: 0},
+    {name: "エルム", gender: "女", personality: "不思議・悪夢的・コミカル", personalityType: "B：穏やか・自由型", age: "不明", look: "ピンク＆シアン髪・角・三つ目・蹄", species: "キメラ", color: "ピンク/シアン/紺/紫", tempo: "普通〜速め", music: "ダーク・ファンタジー・エレクトロ", note: "Wiki設定：女性・Chimera。左右で色の違う瞳、角、第三の目、蹄を持つ。赤い液体入りの意思を持つ丸型フラスコが友人。", wiki: "https://popnmusic.fandom.com/wiki/Elem", score: 0},
+    {name: "ニア", gender: "女", personality: "内気・繊細", personalityType: "B：穏やか・自由型", age: "10代", look: "中性的・幻想的", species: "人間", color: "灰/紫", tempo: "普通〜遅め", music: "エレクトロ・幻想", note: "Wiki設定：人間、対人が苦手。", wiki: "https://popnmusic.fandom.com/wiki/Nia", score: 0},
+    {name: "アカツキ", gender: "男", personality: "穏やか・自然を愛する", personalityType: "B：穏やか・自由型", age: "成人", look: "白髪・黄色い目・神秘的", species: "神（God）", color: "白/黄/緑/黒", tempo: "遅め〜普通", music: "自然・幻想・エスニック", note: "指定Wiki参照：男性・God。華山（Mount Hua）出身、11月14日生まれ。森・動物・自然を好み、人間による森林破壊を嫌う。", wiki: "https://popnmusic.fandom.com/wiki/Akatsuki_%28character%29", score: 0},
+    {name: "アーク", gender: "男", personality: "若者・冒険心旺盛", personalityType: "B：穏やか・自由型", age: "不明", look: "銀髪・細身・エルフ・青い目", species: "エルフ", color: "銀/青/白", tempo: "普通〜速め", music: "ファンタジー・幻想・民族音楽", note: "Alda City出身。奇跡の泉を求め旅をするエルフ。", wiki: "https://popnmusic.fandom.com/wiki/Ark", score: 0},
+    {name: "メリッサ", gender: "女", personality: "勝ち気・冒険好き・活発", personalityType: "D：強気・個性型", age: "若者", look: "金髪ロング三つ編み・エルフ・騎士風", species: "エルフ", color: "黄/金/水色", tempo: "速め", music: "ファンタジー・冒険・クラシック", note: "妖精の国出身。剣術を練習し、城の騎士になることを夢見る。", wiki: "https://popnmusic.fandom.com/wiki/Melissa", score: 0},
     {name: "シオン", gender: "女", personality: "内気・繊細・芯が強い", personalityType: "B：穏やか・自由型", age: "若者", look: "淡い青髪・雪のような幻想的な姿", species: "雪の妖精", color: "水色/淡紫/白", tempo: "速め", music: "冬・幻想・エレクトロ", note: "ノルウェーの森出身。雪遊びが趣味で、冬を好み春を嫌う。", wiki: "https://popnmusic.fandom.com/wiki/Shion_%28character%29", score: 0},
-    {name: "マナ", gender: "女", personality: "物静か・神秘的・寂しげ", personalityType: "C：冷静・知性型", age: "不明", look: "白い肌・青髪・人魚の尾・海の装飾", species: "人魚", color: "青/水色/白", tempo: "遅め〜普通", music: "幻想・海洋・スプラッシュ系", note: "幻想・海洋担当の人魚", wiki: "", score: 0},
-    {name: "エステル", gender: "女", personality: "好奇心旺盛・職人気質・友好的", personalityType: "A：明朗・活発型", age: "若者", look: "淡い金髪・エルフ・機械の義手", species: "エルフ", color: "金/茶/銀", tempo: "普通〜速め", music: "ファンタジー・テクノ・民族音楽", note: "ファンタジー・テクノ担当のエルフ", wiki: "", score: 0},
-    {name: "シルビア", gender: "女", personality: "内気・穏やか・自然を愛する", personalityType: "B：穏やか・自由型", age: "不明", look: "金髪・花冠・蝶のような翼", species: "妖精", color: "緑/白/金", tempo: "遅め〜普通", music: "森・バレエ・幻想", note: "森・バレエ・幻想担当の妖精", wiki: "", score: 0},
-    {name: "チク・タク", gender: "不明", personality: "おだやか・寂しがり・神秘的", personalityType: "B：穏やか・自由型", age: "不明", look: "小さな黒いネズミ風・金髪・時計職人風の衣装", species: "妖精", color: "黒/金/茶", tempo: "普通", music: "童話・時計・幻想", note: "童話・時計・幻想担当の妖精", wiki: "", score: 0},
-    {name: "にんじん", gender: "女", personality: "子供っぽい・自信家・少し尊大", personalityType: "D：強気・個性型", age: "不明", look: "紫髪・ひな人形風・和装・大きな黄色いリボン", species: "人形", color: "紫/黄/赤", tempo: "普通〜速め", music: "童話・ダークファンタジー・幻想", note: "童話・ダークファンタジー担当の人形", wiki: "", score: 0},
-    {name: "キララ", gender: "女", personality: "明るい・アイドル気質・努力家", personalityType: "A：明朗・活発型", age: "不明", look: "青緑の短髪・人魚の尾・王冠", species: "人魚", color: "青緑/白/金", tempo: "速め", music: "人魚・アイドル・ポップ", note: "人魚・アイドル・ポップ担当", wiki: "", score: 0},
-    {name: "シエル", gender: "女", personality: "おっとり・穏やか・無邪気", personalityType: "B：穏やか・自由型", age: "不明", look: "虹色の髪・雲を思わせる衣装", species: "人間", color: "白/虹色/水色", tempo: "普通", music: "メルヘン・空・ファンタジーポップ", note: "メルヘン・空担当のキャラクター", wiki: "", score: 0},
-    {name: "ア・ミリア", gender: "女", personality: "神秘的・優雅", personalityType: "B：穏やか・自由型", age: "不明", look: "天使的・幻想的", species: "天使/精霊", color: "白/金/青", tempo: "遅め〜普通", music: "幻想・クラシック", note: "幻想・クラシック担当の天使/精霊", wiki: "", score: 0},
-    {name: "レナ", gender: "女", personality: "クール・勝ち気・ステージでは情熱的", personalityType: "D：強気・個性型", age: "不明", look: "黒髪ポニーテール・ゴシック・ロック", species: "人間", color: "黒/赤/紫", tempo: "速め", music: "ロック・ガールズロック", note: "ロック・ガールズロック担当", wiki: "", score: 0},
-    {name: "イリス", gender: "女", personality: "神秘的・静か", personalityType: "C：冷静・知性型", age: "不明", look: "幻想的・神話的", species: "神秘系", color: "紫/白/青", tempo: "遅め〜普通", music: "幻想・エレクトロ", note: "幻想・エレクトロ担当のキャラクター", wiki: "", score: 0},
-    {name: "ローズマリー", gender: "女", personality: "知的・魔女らしい・気まぐれ", personalityType: "C：冷静・知性型", age: "不明", look: "魔女・幻想的", species: "魔女", color: "黒/紫/赤", tempo: "普通〜遅め", music: "魔法・幻想・ダーク", note: "魔法・幻想・ダーク担当の魔女", wiki: "", score: 0},
-    {name: "テンコ", gender: "女", personality: "明るい・活発", personalityType: "A：明朗・活発型", age: "不明", look: "和装・狐/妖怪モチーフ", species: "妖怪/狐系", color: "赤/白/金", tempo: "速め", music: "和風・ファンタジー", note: "和風・ファンタジー担当の狐妖怪", wiki: "", score: 0},
-    {name: "ひな", gender: "女", personality: "かわいい・明るい", personalityType: "A：明朗・活発型", age: "不明", look: "ひな人形風・和風", species: "人間/人形系", color: "桃/白/赤", tempo: "普通", music: "和風・メルヘン", note: "和風・メルヘン担当のキャラクター", wiki: "", score: 0},
-    {name: "アイリーン", gender: "女", personality: "豪快・自由奔放・冒険好き", personalityType: "D：強気・個性型", age: "不明", look: "海賊風・船乗り風", species: "人間", color: "赤/黒/金", tempo: "速め", music: "海賊・ロック・アドベンチャー", note: "海賊・ロック担当の女性", wiki: "", score: 0},
-    {name: "ノヴァ", gender: "不明", personality: "神秘的・宇宙的", personalityType: "C：冷静・知性型", age: "不明", look: "星・宇宙モチーフ", species: "宇宙系人外", color: "青/黒/金", tempo: "普通〜速め", music: "スペース・幻想", note: "スペース・幻想担当の宇宙系キャラ", wiki: "", score: 0},
-    {name: "ノネット", gender: "女", personality: "優雅・幻想的", personalityType: "B：穏やか・自由型", age: "不明", look: "童話・メルヘン風", species: "人間/幻想系", color: "ピンク/白", tempo: "普通", music: "メルヘン・幻想", note: "メルヘン・幻想担当のキャラクター", wiki: "", score: 0},
-    {name: "バウンティ", gender: "男2人組", personality: "豪快・熱血・サービス精神旺盛", personalityType: "D：強気・個性型", age: "不明", look: "キツネと犬のロックデュオ", species: "キツネ＋犬", color: "茶/黒/赤", tempo: "速め", music: "ロック", note: "ロック担当のデュオキャラクター", wiki: "", score: 0},
-    {name: "ロード・メー", gender: "不明", personality: "威厳・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "王侯・異世界風", species: "人外/幻想系", color: "紫/金/黒", tempo: "普通〜遅め", music: "ファンタジー・幻想", note: "ファンタジー・幻想担当のキャラクター", wiki: "", score: 0},
-    {name: "マタ・ハリ", gender: "女", personality: "妖艶・神秘的", personalityType: "D：強気・個性型", age: "不明", look: "異国風・舞姫", species: "人間", color: "赤/紫/金", tempo: "普通〜速め", music: "エキゾチック・ダンス", note: "エキゾチック・ダンス担当の舞姫", wiki: "", score: 0},
-    {name: "プリリン", gender: "不明", personality: "無邪気・かわいい", personalityType: "B：穏やか・自由型", age: "不明", look: "妖精・マスコット風", species: "妖精", color: "ピンク/白", tempo: "普通", music: "キュート・ファンタジー", note: "キュート・ファンタジー担当の妖精", wiki: "", score: 0},
-    {name: "ピュアクル♥リップ", gender: "女", personality: "元気・正義感が強い", personalityType: "A：明朗・活発型", age: "不明", look: "魔法少女", species: "人間/魔法少女", color: "ピンク/白/黄", tempo: "速め", music: "魔法少女・ポップ", note: "魔法少女・ポップ担当のキャラクター", wiki: "", score: 0},
-    {name: "ハッシュマン", gender: "不明", personality: "寡黙・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "覆面・幻想的", species: "人外/幻想系", color: "黒/灰/白", tempo: "普通〜遅め", music: "ダーク・幻想", note: "ダーク・幻想担当のキャラクター", wiki: "", score: 0},
-    {name: "エッダ", gender: "男", personality: "内気・繊細", personalityType: "C：冷静・知性型", age: "不明", look: "北欧風・動物的", species: "人間/人外系", color: "緑/茶/白", tempo: "遅め〜普通", music: "北欧・幻想・フォーク", note: "北欧・幻想・フォーク担当のキャラクター", wiki: "", score: 0},
-    {name: "ハーピア", gender: "女", personality: "妖艶・気まぐれ", personalityType: "D：強気・個性型", age: "不明", look: "翼・鳥人・怪物的", species: "ハーピー", color: "紫/黒/赤", tempo: "速め", music: "神話・ダークファンタジー", note: "神話・ダークファンタジー担当のハーピー", wiki: "", score: 0},
-    {name: "ノルニル", gender: "女", personality: "神秘的・荘厳", personalityType: "C：冷静・知性型", age: "不明", look: "北欧神話・女神風", species: "女神/神話系", color: "青/白/銀", tempo: "遅め〜普通", music: "北欧神話・幻想", note: "北欧神話・幻想担当の女神", wiki: "", score: 0},
-    {name: "テテ＆トト", gender: "不明2人組", personality: "無邪気・コミカル", personalityType: "B：穏やか・自由型", age: "不明", look: "小人・妖精風", species: "妖精/小人系", color: "緑/黄/赤", tempo: "普通", music: "童話・コミカル・ファンタジー", note: "童話・コミカル担当のペア", wiki: "", score: 0},
-    {name: "勇者ああああ", gender: "男", personality: "熱血・単純明快・冒険好き", personalityType: "D：強気・個性型", age: "不明", look: "勇者・RPG主人公風", species: "人間", color: "青/赤/黄", tempo: "速め", music: "RPG・ファンタジー・ロック", note: "RPG・ファンタジー・ロック担当の勇者", wiki: "", score: 0},
-    {name: "フローラ", gender: "女", personality: "優しい・自然を愛する", personalityType: "B：穏やか・自由型", age: "不明", look: "花・植物・妖精風", species: "妖精", color: "緑/ピンク/白", tempo: "遅め〜普通", music: "自然・幻想", note: "自然・幻想担当の妖精", wiki: "", score: 0},
-    {name: "酒呑雷牙", gender: "男", personality: "豪快・酒好き・武人肌", personalityType: "D：強気・個性型", age: "不明", look: "鬼・和風・筋骨隆々", species: "鬼", color: "赤/黒/金", tempo: "速め", music: "和風・ロック・鬼", note: "和風・ロック担当の鬼", wiki: "", score: 0},
-    {name: "影虎", gender: "男", personality: "寡黙・武人・忠義", personalityType: "C：冷静・知性型", age: "不明", look: "虎・忍者/武士風", species: "虎/人外", color: "黒/黄/赤", tempo: "速め", music: "和風・忍者・ロック", note: "和風・忍者・ロック担当の虎キャラ", wiki: "", score: 0},
-    {name: "トリニティ", gender: "女", personality: "孤独・神秘的・平和を好む", personalityType: "C：冷静・知性型", age: "不明", look: "白髪・ヘルメット・光輪・SF的", species: "宇宙人", color: "白/銀/青", tempo: "速め", music: "ゴシック・J-Hard Dance・SF幻想", note: "SF幻想担当の宇宙人", wiki: "", score: 0},
-    {name: "エイリーン", gender: "女", personality: "冒険好き・自由奔放", personalityType: "D：強気・個性型", age: "不明", look: "海賊風・航海士風", species: "人間", color: "青/赤/白", tempo: "速め", music: "海賊・アドベンチャー", note: "海賊・アドベンチャー担当の女性", wiki: "", score: 0},
-    {name: "ライゾウ", gender: "男", personality: "豪快・正義感が強い", personalityType: "D：強気・個性型", age: "不明", look: "和風・妖怪/武者風", species: "妖怪/人外", color: "赤/黒/金", tempo: "速め", music: "和風・民族・ロック", note: "和風・民族・ロック担当", wiki: "", score: 0},
-    {name: "サン", gender: "男", personality: "穏やか・自然派", personalityType: "B：穏やか・自由型", age: "不明", look: "民族風・自然系", species: "人間/精霊系", color: "茶/緑/黄", tempo: "普通", music: "民族・フォーク・幻想", note: "民族・フォーク担当の男性", wiki: "", score: 0},
-    {name: "キャッスル", gender: "不明", personality: "神秘的・威厳", personalityType: "C：冷静・知性型", age: "不明", look: "城・ファンタジー建築モチーフ", species: "人外/建築系", color: "灰/白/金", tempo: "普通〜遅め", music: "ファンタジー・クラシック", note: "ファンタジー・クラシック担当のキャラクター", wiki: "", score: 0},
-    {name: "ラーズ", gender: "男", personality: "自信家・華やか・宇宙スター", personalityType: "D：強気・個性型", age: "青年〜成人", look: "深いマゼンタの髪・宇宙衣装・ロケットマイク", species: "ヒューマノイド宇宙人", color: "マゼンタ/紫/黒", tempo: "速め", music: "宇宙・トランス・エレクトロ", note: "宇宙・トランス担当のヒューマノイド", wiki: "", score: 0},
-    {name: "ステラ", gender: "男", personality: "冒険好き・自由奔放", personalityType: "A：明朗・活発型", age: "青年", look: "ライムグリーンの髪・宇宙服風", species: "宇宙人", color: "黄緑/白/青", tempo: "速め", music: "宇宙・テクノ・トランス", note: "宇宙・テクノ担当の青年", wiki: "", score: 0},
-    {name: "シリウス", gender: "男", personality: "冷静・冒険家気質", personalityType: "C：冷静・知性型", age: "青年〜成人", look: "青髪・宇宙服・杖を持つ", species: "宇宙人", color: "青/銀/白", tempo: "普通〜速め", music: "宇宙・トランス・幻想", note: "宇宙・トランス・幻想担当の冒険家", wiki: "", score: 0},
-    {name: "フォトン", gender: "女", personality: "神秘的・優雅", personalityType: "C：冷静・知性型", age: "成人", look: "光・天体・女神的な姿", species: "神/女神", color: "白/金/青", tempo: "普通〜遅め", music: "幻想・神秘・宇宙", note: "幻想・神秘・宇宙担当の女神", wiki: "", score: 0},
-    {name: "ルル", gender: "女", personality: "明るい・好奇心旺盛", personalityType: "A：明朗・活発型", age: "少女〜青年", look: "星・銀河モチーフの少女", species: "宇宙人/星の王女", color: "青/紫/ピンク", tempo: "速め", music: "宇宙・サイケ・トランス", note: "宇宙・サイケ・トランス担当の王女", wiki: "", score: 0},
-    {name: "コペル", gender: "女", personality: "おっとり・ふわふわ・天然", personalityType: "B：穏やか・自由型", age: "少女〜青年", look: "淡い色の宇宙人少女・UFO風", species: "宇宙人", color: "水色/ピンク/白", tempo: "普通", music: "宇宙・ポップ・ファンタジー", note: "宇宙・ポップ担当のおっとり少女", wiki: "", score: 0},
-    {name: "メテオ", gender: "男", personality: "熱血・音楽好き", personalityType: "D：強気・個性型", age: "青年", look: "宇宙人・ギタリスト風", species: "宇宙人", color: "赤/黒/銀", tempo: "速め", music: "ロック・宇宙・ハードロック", note: "ロック・宇宙担当のギタリスト", wiki: "", score: 0},
-    {name: "星のひと", gender: "不明", personality: "穏やか・神秘的", personalityType: "B：穏やか・自由型", age: "不明", look: "星・宇宙を思わせる抽象的な姿", species: "宇宙人/星系", color: "黒/金/青", tempo: "遅め〜普通", music: "幻想・宇宙・アンビエント", note: "幻想・宇宙・アンビエント担当のキャラクター", wiki: "", score: 0},
-    {name: "ベラ", gender: "女", personality: "優雅・知的", personalityType: "C：冷静・知性型", age: "成人", look: "宇宙服・ピアニスト風", species: "宇宙人", color: "白/青/黒", tempo: "普通〜速め", music: "宇宙・ダンス・エレクトロ", note: "宇宙・ダンス担当のピアニスト", wiki: "", score: 0},
-    {name: "ウォーカー", gender: "不明", personality: "穏やか・寡黙・知的", personalityType: "C：冷静・知性型", age: "不明", look: "人型の惑星・惑星リング", species: "惑星（Planet）", color: "青/茶/白", tempo: "普通", music: "レトロフューチャー・SFロック", note: "レトロフューチャー担当の惑星キャラ", wiki: "", score: 0},
-    {name: "ニコ", gender: "不明", personality: "陽気・親しみやすい", personalityType: "A：明朗・活発型", age: "少年〜青年", look: "宇宙人・レトロSF風", species: "宇宙人", color: "黄/青/赤", tempo: "普通〜速め", music: "レトロ・ポップ・宇宙", note: "レトロ・ポップ担当の宇宙人", wiki: "", score: 0},
-    {name: "アゲハ", gender: "女", personality: "快活・ダンス好き", personalityType: "A：明朗・活発型", age: "成人", look: "蝶・宇宙/未来風", species: "人間/宇宙系", color: "紫/ピンク/黒", tempo: "速め", music: "ダンス・ポップ・SF", note: "ダンス・ポップ・SF担当の女性", wiki: "", score: 0},
-    {name: "パル", gender: "不明", personality: "無機質・素直", personalityType: "C：冷静・知性型", age: "不明", look: "小型ロボット・未来的", species: "ロボット", color: "銀/白/青", tempo: "速め", music: "テクノ・SF", note: "テクノ・SF担当の小型ロボット", wiki: "", score: 0},
-    {name: "フーちゃん", gender: "不明", personality: "明るい・未来的", personalityType: "A：明朗・活発型", age: "不明", look: "未来的・マスコット風", species: "Fu-chan系種族", color: "黄/水色/白", tempo: "速め", music: "フューチャー・ダンス", note: "フューチャー・ダンス担当のマスコット", wiki: "", score: 0},
-    {name: "ビス子", gender: "女", personality: "元気・好奇心旺盛・ゲーム好き", personalityType: "A：明朗・活発型", age: "少女〜青年", look: "猫耳・淡橙色の髪・アンドロイド", species: "アンドロイド", color: "橙/白/青", tempo: "速め", music: "エレクトロ・デジタル・SF", note: "エレクトロ・デジタル担当のアンドロイド", wiki: "", score: 0},
-    {name: "ツインビー", gender: "不明", personality: "勇敢・コミカル", personalityType: "A：明朗・活発型", age: "不明", look: "黄色い宇宙船・ベルのモチーフ", species: "宇宙船", color: "黄/青/赤", tempo: "速め", music: "ユーロビート・ゲーム音楽・SF", note: "ユーロビート担当の宇宙船キャラ", wiki: "", score: 0},
-    {name: "スペース＠マコ", gender: "女", personality: "正義感が強い・元気", personalityType: "A：明朗・活発型", age: "青年〜成人", look: "宇宙ヒロイン・SFスーツ", species: "人間/宇宙ヒロイン", color: "赤/白/青", tempo: "速め", music: "スペース・ポップ・SF", note: "Space Heroine系キャラクター。", wiki: "", score: 0},
-    {name: "流星ハニー", gender: "女", personality: "元気・情熱的・ヒロイン気質", personalityType: "A：明朗・活発型", age: "青年〜成人", look: "流星・宇宙ヒロイン風", species: "宇宙人/宇宙ヒロイン", color: "黄/赤/ピンク", tempo: "速め", music: "ハッピー・宇宙・ポップ", note: "星・流星をモチーフにした宇宙系ヒロイン。", wiki: "", score: 0},
-    {name: "ヴィルヘルム", gender: "男", personality: "冷酷・知性的・高貴", personalityType: "C：冷静・知性型", age: "成人", look: "軍服・黒髪・モノクル", species: "人間", color: "黒/銀/赤", tempo: "普通〜速め", music: "クラシック・オーケストラ・ダーク", note: "クラシック・オーケストラ担当の軍人風男性", wiki: "", score: 0},
-    {name: "セルヒオ", gender: "男", personality: "陽気・情熱的・ダンディ", personalityType: "A：明朗・活発型", age: "成人", look: "スーツ・髭・ダンサー", species: "人間", color: "赤/黒/金", tempo: "速め", music: "タンゴ・ラテン・ダンス", note: "タンゴ・ラテン担当の男性", wiki: "", score: 0},
-    {name: "ボリス", gender: "男", personality: "寡黙・頑固・人情家", personalityType: "C：冷静・知性型", age: "成人", look: "大柄・コート・帽子", species: "人間", color: "茶/灰/黒", tempo: "遅め〜普通", music: "ロシア・フォーク・ブラス", note: "ロシア・フォーク担当の大柄な男性", wiki: "", score: 0},
-    {name: "ピエール", gender: "男", personality: "キザ・ロマンチスト・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "金髪・タキシード・薔薇", species: "人間", color: "白/ピンク/金", tempo: "普通", music: "フレンチポップ・シャンソン", note: "フレンチポップ担当のキザな青年", wiki: "", score: 0},
-    {name: "ジル", gender: "女", personality: "クール・ミステリアス・孤独", personalityType: "C：冷静・知性型", age: "若者", look: "黒髪ショート・革ジャン", species: "人間", color: "黒/紫/銀", tempo: "速め", music: "サイバー・ロック・インダストリアル", note: "インダストリアル・ロック担当の女性", wiki: "", score: 0},
-    {name: "フランソワ", gender: "女", personality: "気まぐれ・小悪魔的・エレガント", personalityType: "D：強気・個性型", age: "若者", look: "ドレス・扇子・黒猫モチーフ", species: "人間", color: "紫/黒/ピンク", tempo: "普通", music: "ジャズ・キャバレー", note: "ジャズ・キャバレー担当の女性", wiki: "", score: 0},
-    {name: "マロン", gender: "女", personality: "のんびり・食いしん坊・天然", personalityType: "B：穏やか・自由型", age: "子供", look: "栗モチーフ・ほっぺが赤い", species: "リス", color: "茶/黄/橙", tempo: "普通", music: "カントリー・アコースティック", note: "カントリー・ポップ担当のリスキャラ", wiki: "", score: 0},
-    {name: "オトハ", gender: "女", personality: "和やか・慎み深い・風流", personalityType: "C：冷静・知性型", age: "10代", look: "着物・巫女風・ロングヘア", species: "人間", color: "白/赤/緑", tempo: "遅め〜普通", music: "和風・雅楽・ヒーリング", note: "和風ヒーリング担当の巫女風少女", wiki: "", score: 0},
-    {name: "ガルシア", gender: "男", personality: "豪快・豪壮・力強い", personalityType: "D：強気・個性型", age: "成人", look: "筋肉質・覆面レスラー", species: "人間", color: "赤/黄/黒", tempo: "速め", music: "ルチャ・ロック・メタル", note: "ルチャ・ロック担当の覆面レスラー", wiki: "", score: 0},
-    {name: "ハク", gender: "男", personality: "浮世離れ・神秘的・穏やか", personalityType: "B：穏やか・自由型", age: "不明", look: "白装束・長髪・狐耳風", species: "神仙/龍神", color: "白/銀/青", tempo: "遅め〜普通", music: "オリエンタル・アンビエント", note: "オリエンタル・アンビエント担当の神仙", wiki: "", score: 0},
-    {name: "チヒロ", gender: "女", personality: "真面目・一途・努力家", personalityType: "C：冷静・知性型", age: "10代", look: "弓道着・黒髪ポニーテール", species: "人間", color: "白/黒/紺", tempo: "普通〜速め", music: "和風ポップ・和ロック", note: "和風ポップ担当の弓道少女", wiki: "", score: 0},
-    {name: "レオナルド", gender: "男", personality: "探求心旺盛・変人・発明家", personalityType: "D：強気・個性型", age: "成人", look: "ゴーグル・白衣・機械の鞄", species: "人間", color: "茶/銅/緑", tempo: "普通〜速め", music: "スチームパンク・スウィング", note: "スチームパンク担当の発明家", wiki: "", score: 0},
-    {name: "デボラ", gender: "女", personality: "物静か・一途・哀愁を帯びた", personalityType: "C：冷静・知性型", age: "成人相当（生前年齢不明）", look: "ダークブロンドの長髪・青灰色の肌・白いウェディングドレス", species: "アンデッド", color: "白/灰/赤/金", tempo: "遅め", music: "ゴシック・メランコリック", note: "亡くなった婚約者を待ち続ける設定。", wiki: "https://popnmusic.fandom.com/wiki/Deborah", score: 0}
+    {name: "マナ", gender: "女", personality: "物静か・神秘的・寂しげ", personalityType: "C：冷静・知性型", age: "不明", look: "白い肌・青髪・人魚の尾・海の装飾", species: "人魚", color: "青/白/紫", tempo: "速め", music: "幻想・海洋・スプラッシュ系", note: "アリューシャン列島出身。深海に住み、人間に見られることを嫌う。アクセサリー作りが趣味。", wiki: "https://popnmusic.fandom.com/wiki/Mana_%28character%29", score: 0},
+    {name: "エステル", gender: "女", personality: "好奇心旺盛・職人気質・友好的", personalityType: "B：穏やか・自由型", age: "若者", look: "淡い金髪・エルフ・機械の義手", species: "エルフ", color: "淡黄/緑/白/橙", tempo: "普通", music: "ファンタジー・テクノ・民族音楽", note: "エルフの村出身。自然と技術が共存する町で、失われた古代技術から腕を作った。機械いじりが趣味。", wiki: "https://popnmusic.fandom.com/wiki/Estel", score: 0},
+    {name: "シルビア", gender: "女", personality: "内気・穏やか・自然を愛する", personalityType: "B：穏やか・自由型", age: "不明", look: "金髪・花冠・蝶のような翼", species: "妖精", color: "緑/黄/金/白", tempo: "普通〜遅め", music: "森・バレエ・幻想", note: "ドナウ川近くの森出身。友達と踊ることが趣味。きれいな水を好み、森林伐採を嫌う。", wiki: "https://popnmusic.fandom.com/wiki/Silvia", score: 0},
+    {name: "チク・タク", gender: "不明", personality: "おだやか・寂しがり・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "小さな黒いネズミ風・金髪・時計職人風の衣装", species: "妖精", color: "黒/茶/赤/金", tempo: "普通", music: "童話・時計・幻想", note: "スイス出身。大時計を守る小さな時間の妖精。編み物が趣味で、暖炉の光が好き。", wiki: "https://popnmusic.fandom.com/wiki/Tiku-Taku", score: 0},
+    {name: "にんじん", gender: "女", personality: "子供っぽい・自信家・少し尊大", personalityType: "D：強気・個性型", age: "不明", look: "紫髪・ひな人形風・和装・大きな黄色いリボン", species: "人形", color: "紫/黄/赤/黒", tempo: "普通", music: "童話・ダークファンタジー・幻想", note: "Panorama Island出身。生きた人形で、童話とチョコレートが好き。", wiki: "https://popnmusic.fandom.com/wiki/Ninjin", score: 0},
+    {name: "キララ", gender: "女", personality: "明るい・アイドル気質・努力家", personalityType: "A：明朗・活発型", age: "不明", look: "青緑の短髪・人魚の尾・王冠", species: "人魚", color: "青緑/青/白/ピンク", tempo: "速め", music: "人魚・アイドル・ポップ", note: "Mermaid Land出身。歌の練習に励む水中アイドル。貝殻集めが趣味。", wiki: "https://popnmusic.fandom.com/wiki/Kirara", score: 0},
+    {name: "シエル", gender: "女", personality: "おっとり・穏やか・無邪気", personalityType: "B：穏やか・自由型", age: "不明", look: "虹色の髪・雲を思わせる衣装", species: "人間", color: "虹/水色/白", tempo: "普通", music: "メルヘン・空・ファンタジーポップ", note: "雲の上に住む少女。妖精テルテルと仲良しで、一緒に風に乗って暮らす。", wiki: "https://popnmusic.fandom.com/wiki/Ciel", score: 0},
+    {name: "ア・ミリア", gender: "女", personality: "神秘的・優雅", personalityType: "C：冷静・知性型", age: "不明", look: "天使的・幻想的", species: "天使/精霊", color: "白/金/青", tempo: "普通〜遅め", music: "幻想・クラシック", note: "ファンタジー系候補。", wiki: "https://popnmusic.fandom.com/wiki/A_Milia", score: 0},
+    {name: "レナ", gender: "女", personality: "クール・勝ち気・ステージでは情熱的", personalityType: "D：強気・個性型", age: "不明", look: "黒髪ポニーテール・ゴシック・ロック", species: "人間", color: "黒/紫/白", tempo: "速め", music: "ロック・ガールズロック", note: "指定Wiki参照。ロックスター兼ギタリスト。", wiki: "https://popnmusic.fandom.com/wiki/Lena", score: 0},
+    {name: "イリス", gender: "女", personality: "神秘的・静か", personalityType: "C：冷静・知性型", age: "不明", look: "幻想的・神話的", species: "神秘系", color: "紫/青/白", tempo: "普通〜遅め", music: "幻想・エレクトロ", note: "ファンタジー系候補。", wiki: "https://popnmusic.fandom.com/wiki/Irys", score: 0},
+    {name: "ローズマリー", gender: "女", personality: "知的・魔女らしい・気まぐれ", personalityType: "C：冷静・知性型", age: "不明", look: "魔女・幻想的", species: "魔女", color: "紫/黒/赤", tempo: "普通", music: "魔法・幻想・ダーク", note: "ファンタジー系候補。", wiki: "https://popnmusic.fandom.com/wiki/Rosemary", score: 0},
+    {name: "テンコ", gender: "女", personality: "明るい・活発", personalityType: "A：明朗・活発型", age: "不明", look: "和装・狐/妖怪モチーフ", species: "妖怪/狐系", color: "赤/白/黒", tempo: "速め", music: "和風・ファンタジー", note: "『fantasia』系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Tenko", score: 0},
+    {name: "ひな", gender: "女", personality: "かわいい・明るい", personalityType: "A：明朗・活発型", age: "不明", look: "ひな人形風・和風", species: "人間/人形系", color: "桃/赤/白", tempo: "普通", music: "和風・メルヘン", note: "指定表記「ひな」。", wiki: "https://popnmusic.fandom.com/wiki/Hina", score: 0},
+    {name: "アイリーン", gender: "女", personality: "豪快・自由奔放・冒険好き", personalityType: "D：強気・個性型", age: "不明", look: "海賊風・船乗り風", species: "人間", color: "赤/黒/白/金", tempo: "速め", music: "海賊・ロック・アドベンチャー", note: "指定Wiki参照。海賊系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Eileen", score: 0},
+    {name: "ノヴァ", gender: "不明", personality: "神秘的・宇宙的", personalityType: "C：冷静・知性型", age: "不明", look: "星・宇宙モチーフ", species: "宇宙系人外", color: "青/紫/黒", tempo: "速め", music: "スペース・幻想", note: "ファンタジー系候補。", wiki: "https://popnmusic.fandom.com/wiki/Nova", score: 0},
+    {name: "ノネット", gender: "女", personality: "優雅・幻想的", personalityType: "B：穏やか・自由型", age: "不明", look: "童話・メルヘン風", species: "人間/幻想系", color: "白/青/金", tempo: "普通", music: "メルヘン・幻想", note: "指定表記は「ノネット」。", wiki: "https://popnmusic.fandom.com/wiki/Nonet", score: 0},
+    {name: "バウンティ", gender: "男2人組", personality: "豪快・熱血・サービス精神旺盛", personalityType: "D：強気・個性型", age: "不明", look: "キツネと犬のロックデュオ", species: "キツネ＋犬", color: "茶/白/黒/青", tempo: "速め", music: "ロック", note: "指定Wiki参照。キツネと犬の2人組、日本のロックシーンのデュオ。", wiki: "https://popnmusic.fandom.com/wiki/Bounty", score: 0},
+    {name: "ロード・メー", gender: "不明", personality: "威厳・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "王侯・異世界風", species: "人外/幻想系", color: "紫/金/黒", tempo: "普通", music: "ファンタジー・幻想", note: "ファンタジー系候補。", wiki: "https://popnmusic.fandom.com/wiki/Lord_Meh", score: 0},
+    {name: "マタ・ハリ", gender: "女", personality: "妖艶・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "異国風・舞姫", species: "人間", color: "赤/紫/金", tempo: "普通〜速め", music: "エキゾチック・ダンス", note: "ファンタジー/異国系候補。", wiki: "https://popnmusic.fandom.com/wiki/Mata_Hari", score: 0},
+    {name: "プリリン", gender: "不明", personality: "無邪気・かわいい", personalityType: "B：穏やか・自由型", age: "不明", look: "妖精・マスコット風", species: "妖精", color: "桃/白/黄", tempo: "速め", music: "キュート・ファンタジー", note: "妖精系候補。", wiki: "https://popnmusic.fandom.com/wiki/Puririn", score: 0},
+    {name: "ピュアクル♥リップ", gender: "女", personality: "元気・正義感が強い", personalityType: "D：強気・個性型", age: "不明", look: "魔法少女", species: "人間/魔法少女", color: "桃/白/赤", tempo: "速め", music: "魔法少女・ポップ", note: "魔法少女系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Purecul♥Lip", score: 0},
+    {name: "ハッシュマン", gender: "男", personality: "陽気・ノリノリで自信たっぷり（アップテンポな音楽で別人格のように振る舞う）", personalityType: "A：明朗・活発型", age: "成人", look: "長いドレッドヘア・日焼けした肌・パイプをくわえ、自作の太鼓を叩いて踊る", species: "人間", color: "黒/白/紫", tempo: "普通", music: "ラウドビーチ（ノリノリ系・陽気なビーチサウンド）", note: "ユーザー指定のイメージを反映。公式Wikiでは男性・人間で、陽気な音楽が流れると自信たっぷりな別人格のようになる設定。担当曲にラウドビーチがある。", wiki: "https://popnmusic.fandom.com/wiki/Hushman", score: 0},
+    {name: "エッダ", gender: "男", personality: "内気・繊細", personalityType: "B：穏やか・自由型", age: "不明", look: "北欧風・動物的", species: "人間/人外系", color: "青/白/茶", tempo: "普通〜遅め", music: "北欧・幻想・フォーク", note: "北欧・幻想系候補。", wiki: "https://popnmusic.fandom.com/wiki/Edda", score: 0},
+    {name: "ハーピア", gender: "女", personality: "妖艶・気まぐれ", personalityType: "B：穏やか・自由型", age: "不明", look: "翼・鳥人・怪物的", species: "ハーピー", color: "紫/青/黒", tempo: "速め", music: "神話・ダークファンタジー", note: "指定Wiki参照。ハーピー系の神話的キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Harpya", score: 0},
+    {name: "ノルニル", gender: "女", personality: "神秘的・荘厳", personalityType: "C：冷静・知性型", age: "不明", look: "北欧神話・女神風", species: "女神/神話系", color: "白/青/金", tempo: "遅め〜普通", music: "北欧神話・幻想", note: "北欧神話のノルンをイメージしたキャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Nornir", score: 0},
+    {name: "テテ＆トト", gender: "不明2人組", personality: "無邪気・コミカル", personalityType: "B：穏やか・自由型", age: "不明", look: "小人・妖精風", species: "妖精/小人系", color: "緑/黄/赤", tempo: "速め", music: "童話・コミカル・ファンタジー", note: "2人組のメルヘン系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Tete_%26_Toto", score: 0},
+    {name: "勇者ああああ", gender: "男", personality: "熱血・単純明快・冒険好き", personalityType: "D：強気・個性型", age: "不明", look: "勇者・RPG主人公風", species: "人間", color: "赤/青/金", tempo: "速め", music: "RPG・ファンタジー・ロック", note: "指定表記「勇者ああああ」。勇者系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Yushaaaaa", score: 0},
+    {name: "フローラ", gender: "女", personality: "優しい・自然を愛する", personalityType: "B：穏やか・自由型", age: "不明", look: "花・植物・妖精風", species: "妖精", color: "緑/黄/白", tempo: "普通〜遅め", music: "自然・幻想", note: "自然系ファンタジー候補。", wiki: "https://popnmusic.fandom.com/wiki/Flora", score: 0},
+    {name: "酒呑雷牙", gender: "男", personality: "豪快・酒好き・武人肌", personalityType: "D：強気・個性型", age: "不明", look: "鬼・和風・筋骨隆々", species: "鬼", color: "赤/黒/金", tempo: "速め", music: "和風・ロック・鬼", note: "指定Wiki参照。酒呑童子を思わせる鬼系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Raiga_Shuten", score: 0},
+    {name: "影虎", gender: "男", personality: "寡黙・武人・忠義", personalityType: "C：冷静・知性型", age: "不明", look: "虎・忍者/武士風", species: "虎/人外", color: "黒/黄/赤", tempo: "速め", music: "和風・忍者・ロック", note: "指定Wiki参照。和風・動物系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Kagetora", score: 0},
+    {name: "トリニティ", gender: "女", personality: "孤独・神秘的・平和を好む", personalityType: "C：冷静・知性型", age: "不明", look: "白髪・ヘルメット・光輪・SF的", species: "宇宙人", color: "白/黄緑/紫", tempo: "速め", music: "ゴシック・J-Hard Dance・SF幻想", note: "指定Wiki参照：女性・Alien。過去の記憶を失い、自分の本当の姿も知らない。", wiki: "https://popnmusic.fandom.com/wiki/Trinity", score: 0},
+    {name: "エイリーン", gender: "女", personality: "冒険好き・自由奔放", personalityType: "B：穏やか・自由型", age: "不明", look: "海賊風・航海士風", species: "人間", color: "赤/黒/金/白", tempo: "速め", music: "海賊・アドベンチャー", note: "名称は「アイリーン」に統一。海賊系。", wiki: "https://popnmusic.fandom.com/wiki/エイリーン", score: 0},
+    {name: "雷蔵", gender: "男", personality: "豪快・正義感が強い", personalityType: "D：強気・個性型", age: "不明", look: "和風・妖怪/武者風", species: "妖怪/人外", color: "赤/黒/金", tempo: "速め", music: "和風・民族・ロック", note: "妖怪・和風ファンタジー系候補。", wiki: "https://popnmusic.fandom.com/wiki/Raizou", score: 0},
+    {name: "サン", gender: "男", personality: "穏やか・自然派", personalityType: "B：穏やか・自由型", age: "不明", look: "民族風・自然系", species: "人間/精霊系", color: "緑/茶/黄", tempo: "普通", music: "民族・フォーク・幻想", note: "自然・民族系候補。", wiki: "https://popnmusic.fandom.com/wiki/San", score: 0},
+    {name: "キャッスル", gender: "不明", personality: "神秘的・威厳", personalityType: "C：冷静・知性型", age: "不明", look: "城・ファンタジー建築モチーフ", species: "人外/建築系", color: "灰/青/金", tempo: "普通", music: "ファンタジー・クラシック", note: "ファンタジー世界観系候補。", wiki: "https://popnmusic.fandom.com/wiki/Castle", score: 0},
+    {name: "ラーズ", gender: "男", personality: "自信家・華やか・宇宙スター", personalityType: "D：強気・個性型", age: "青年〜成人", look: "深いマゼンタの髪・宇宙衣装・ロケットマイク", species: "ヒューマノイド宇宙人", color: "マゼンタ/水色/白", tempo: "速め", music: "宇宙・トランス・エレクトロ", note: "Wiki設定：Humanoid Alien。居住可能領域出身。太陽系をライブツアーする人気歌手。", wiki: "https://popnmusic.fandom.com/wiki/Rars", score: 0},
+    {name: "ステラ", gender: "男", personality: "冒険好き・自由奔放", personalityType: "B：穏やか・自由型", age: "青年", look: "ライムグリーンの髪・宇宙服風", species: "宇宙人", color: "緑/青/白", tempo: "速め", music: "宇宙・テクノ・トランス", note: "Wiki設定：Alien。Tempel Tuttle彗星出身。シリウスの弟。観光飛行が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Stella", score: 0},
+    {name: "シリウス", gender: "男", personality: "冷静・冒険家気質", personalityType: "C：冷静・知性型", age: "青年〜成人", look: "青髪・宇宙服・杖を持つ", species: "宇宙人", color: "青/白/金", tempo: "速め", music: "宇宙・トランス・幻想", note: "Wiki設定：宇宙を旅するキャラクター。ステラの兄。", wiki: "https://popnmusic.fandom.com/wiki/Sirius", score: 0},
+    {name: "フォトン", gender: "女", personality: "神秘的・優雅", personalityType: "C：冷静・知性型", age: "成人", look: "光・天体・女神的な姿", species: "神/女神", color: "白/金/水色", tempo: "普通〜遅め", music: "幻想・神秘・宇宙", note: "宇宙・天空をイメージする神秘系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Photon", score: 0},
+    {name: "ルル", gender: "女", personality: "明るい・好奇心旺盛", personalityType: "B：穏やか・自由型", age: "少女〜青年", look: "星・銀河モチーフの少女", species: "宇宙人/星の王女", color: "紫/桃/青", tempo: "速め", music: "宇宙・サイケ・トランス", note: "Wiki設定：銀河の星のお姫様。宇宙ファンタジー系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Lulu", score: 0},
+    {name: "コペル", gender: "女", personality: "おっとり・ふわふわ・天然", personalityType: "B：穏やか・自由型", age: "少女〜青年", look: "淡い色の宇宙人少女・UFO風", species: "宇宙人", color: "水色/白/桃", tempo: "普通", music: "宇宙・ポップ・ファンタジー", note: "Wiki設定：遠い惑星の王女。地球に墜落して記憶を失った宇宙人。", wiki: "https://popnmusic.fandom.com/wiki/Copel", score: 0},
+    {name: "メテオ", gender: "男", personality: "熱血・音楽好き", personalityType: "D：強気・個性型", age: "青年", look: "宇宙人・ギタリスト風", species: "宇宙人", color: "赤/青/黒", tempo: "速め", music: "ロック・宇宙・ハードロック", note: "宇宙人＋ギターのロック系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Meteor", score: 0},
+    {name: "星のひと", gender: "不明", personality: "穏やか・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "星・宇宙を思わせる抽象的な姿", species: "宇宙人/星系", color: "青/白/黄", tempo: "遅め〜普通", music: "幻想・宇宙・アンビエント", note: "星・宇宙を強くモチーフとするキャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Hoshi_no_Hito", score: 0},
+    {name: "ベラ", gender: "女", personality: "優雅・知的", personalityType: "C：冷静・知性型", age: "成人", look: "宇宙服・ピアニスト風", species: "宇宙人", color: "紫/青/白", tempo: "普通", music: "宇宙・ダンス・エレクトロ", note: "宇宙を舞台にした音楽系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Bella", score: 0},
+    {name: "ウォーカー", gender: "不明", personality: "穏やか・寡黙・知的", personalityType: "C：冷静・知性型", age: "不明", look: "人型の惑星・惑星リング", species: "惑星（Planet）", color: "紫/青/緑/灰", tempo: "普通〜遅め", music: "レトロフューチャー・SFロック", note: "Wiki設定：種族=Planet。無重力世界を漂い、美しい惑星を探している。", wiki: "https://popnmusic.fandom.com/wiki/Walker", score: 0},
+    {name: "ニコ", gender: "不明", personality: "陽気・親しみやすい", personalityType: "A：明朗・活発型", age: "少年〜青年", look: "宇宙人・レトロSF風", species: "宇宙人", color: "黄/青/赤", tempo: "速め", music: "レトロ・ポップ・宇宙", note: "火星生まれの宇宙人として知られるキャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Nico", score: 0},
+    {name: "アゲハ", gender: "女", personality: "快活・ダンス好き", personalityType: "A：明朗・活発型", age: "成人", look: "蝶・宇宙/未来風", species: "人間/宇宙系", color: "紫/青/桃", tempo: "速め", music: "ダンス・ポップ・SF", note: "宇宙・未来的な意匠を持つキャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Ageha", score: 0},
+    {name: "パル", gender: "不明", personality: "無機質・素直", personalityType: "B：穏やか・自由型", age: "不明", look: "小型ロボット・未来的", species: "ロボット", color: "銀/青/白", tempo: "速め", music: "テクノ・SF", note: "宇宙・SF系のロボットキャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Pal", score: 0},
+    {name: "ビス子", gender: "女", personality: "元気・好奇心旺盛・ゲーム好き", personalityType: "B：穏やか・自由型", age: "少女〜青年", look: "猫耳・淡橙色の髪・アンドロイド", species: "アンドロイド", color: "橙/黄/ライム/シアン", tempo: "速め", music: "エレクトロ・デジタル・SF", note: "Wiki設定：女性・Android。惑星B-10出身。地球から22億光年離れた惑星から来て、音の動画像を集めている。", wiki: "https://popnmusic.fandom.com/wiki/BisCo", score: 0},
+    {name: "スペース＠マコ", gender: "女", personality: "正義感が強い・元気", personalityType: "D：強気・個性型", age: "青年〜成人", look: "宇宙ヒロイン・SFスーツ", species: "人間/宇宙ヒロイン", color: "青/白/赤", tempo: "速め", music: "スペース・ポップ・SF", note: "Space Heroine系キャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Space%40Mako", score: 0},
+    {name: "流星ハニー", gender: "女", personality: "元気・情熱的・ヒロイン気質", personalityType: "D：強気・個性型", age: "青年〜成人", look: "流星・宇宙ヒロイン風", species: "宇宙人/宇宙ヒロイン", color: "桃/青/黄", tempo: "速め", music: "ハッピー・宇宙・ポップ", note: "星・流星をモチーフにした宇宙系ヒロイン。", wiki: "https://popnmusic.fandom.com/wiki/Ryusei_Honey", score: 0},
+    {name: "ジャスティス★", gender: "男", personality: "自信家・クール・ステージ映えを意識", personalityType: "D：強気・個性型", age: "成人", look: "黒髪・サングラス・黒いコートなどのクールな衣装", species: "人間", color: "黒/灰/白", tempo: "速め", music: "J-ロック・ビートロック", note: "Wiki設定：群馬県出身。作曲や撮影が趣味。高いところが苦手。誕生日は6月4日。", wiki: "https://popnmusic.fandom.com/wiki/Justice%E2%98%85", score: 0},
+    {name: "ケイゴ★", gender: "男", personality: "ファン気質・素直・憧れの人に弱い", personalityType: "B：穏やか・自由型", age: "青年", look: "淡い茶色の髪・琥珀色の目・アイドル風の服装", species: "人間", color: "茶/琥珀/白", tempo: "速め", music: "J-ロック", note: "Wiki設定：西東京出身。ブログでファンと交流するのが趣味。ジャスティス★の大ファンで、トマトが苦手。", wiki: "https://popnmusic.fandom.com/wiki/Keigo%E2%98%85", score: 0},
+    {name: "カポーン", gender: "不明", personality: "働き者・親しみやすい・ユーモラス", personalityType: "B：穏やか・自由型", age: "不明", look: "銭湯をモチーフにしたロボット", species: "ロボット", color: "青/白/赤", tempo: "速め", music: "テクノ・和風・コミカル", note: "Wiki参照：せんとう銭湯ロボ。担当曲に「熱湯泡テクノ」「スーパー戦湯ババンバーン」。年齢・性別は未確認のため不明。", wiki: "https://popnmusic.fandom.com/wiki/Kapooon", score: 0},
+    {name: "クモハさん", gender: "男", personality: "まじめ・温和", personalityType: "B：穏やか・自由型", age: "成人", look: "黄色い電車の頭・青いスーツ・オレンジのネクタイ・書類かばん", species: "人型の電車", color: "黄/青/白/橙", tempo: "普通", music: "鉄道・テクノ", note: "Wiki設定：山口県出身。週末のゴルフが趣味で、妻と息子が好き。味の濃い食べ物が苦手。", wiki: "https://popnmusic.fandom.com/wiki/Kumoha-san", score: 0},
+    {name: "こうもりおとこ", gender: "男", personality: "紳士的・誘惑的・ミステリアス", personalityType: "C：冷静・知性型", age: "成人", look: "灰白色の肌・青い目・黒髪。白いスーツと黒い傘、変身時は黒い翼と尾", species: "コウモリ（悪魔的な存在の可能性あり）", color: "白/黒/青/灰", tempo: "速め", music: "ロック・ダーク・ゴシック", note: "Wiki設定：マレボルジェの第八圏出身。女性を誘惑することが趣味で、女性の涙を好む。悪魔（インキュバス）の可能性が示唆されている。", wiki: "https://popnmusic.fandom.com/wiki/Koumori_Otoko", score: 0},
+    {name: "ルート＠超ドー研", gender: "女", personality: "天才肌・理系・少し残念な一面", personalityType: "C：冷静・知性型", age: "少女〜若者", look: "黒髪ツインテール・眼鏡・白衣・制服", species: "人間", color: "黒/白/青/灰/紫", tempo: "普通", music: "サイエンス・ポップ／テクノ系", note: "超電子ドーナツ研究部員。数学・トポロジー・ドーナツに関心。", wiki: "https://popnmusic.fandom.com/wiki/Root@Chodooken", score: 0},
+    {name: "ロミ夫", gender: "男", personality: "気取った・ハードボイルド風・派手好き", personalityType: "D：強気・個性型", age: "若者〜成人", look: "茶髪・日焼け肌・白いスーツ", species: "人間", color: "茶/白/黒/金", tempo: "普通", music: "ムードテクノ・ラテン/ダンス系", note: "ライター収集、光るもの好き。", wiki: "https://popnmusic.fandom.com/wiki/Romio", score: 0},
+    {name: "チャラ王", gender: "男", personality: "軽薄・社交的・自信家", personalityType: "D：強気・個性型", age: "若者", look: "金髪（黒い根元）・日焼け肌・アクセサリー", species: "人間", color: "金/黒/白/紫", tempo: "普通〜速め", music: "チャラ系ポップ／ダンス系", note: "ロミ夫と親族。自撮りや夜遊びが特徴として描かれる。", wiki: "https://popnmusic.fandom.com/wiki/Chara-O", score: 0},
+    {name: "DJつよし", gender: "男", personality: "情熱的・音楽好き・ステージ好き", personalityType: "A：明朗・活発型", age: "若者〜成人", look: "オリーブ色の髪・緑の目", species: "人間", color: "オリーブ/緑/黒", tempo: "速め", music: "青春ロック・ロック系", note: "OJつよしと関係あり。レコードスクラッチが好き。", wiki: "https://popnmusic.fandom.com/wiki/DJ_Tsuyoshi", score: 0},
+    {name: "ドゥーム", gender: "不明", personality: "打楽器好き・闘志がある（暫定）", personalityType: "D：強気・個性型", age: "不明", look: "動くドラムセット・青い目", species: "ドラムセット（おばけ打楽器）", color: "青/黒/赤", tempo: "速め", music: "ケンカドラム・打楽器系", note: "性別不明。ヘイハットの掃除が趣味、争いは苦手。", wiki: "https://popnmusic.fandom.com/wiki/Dooooom", score: 0},
+    {name: "デボラ", gender: "女", personality: "物静か・一途・哀愁を帯びた", personalityType: "C：冷静・知性型", age: "成人相当（生前年齢不明）", look: "ダークブロンドの長髪・青灰色の肌・白いウェディングドレス", species: "アンデッド", color: "白/灰/赤/金", tempo: "遅め", music: "ゴシック・メランコリック", note: "亡くなった婚約者を待ち続ける設定。", wiki: "https://popnmusic.fandom.com/wiki/Deborah", score: 0},
+    {name: "ジャック", gender: "男", personality: "執念深い・任務に忠実・寡黙な印象", personalityType: "D：強気・個性型", age: "若者", look: "白髪・赤い目・ガスマスク・酸素ボンベ。灰色と赤の服", species: "人間", color: "白/赤/灰/黒", tempo: "速め", music: "ミクスチャー・ロック系", note: "異世界から来た人物。上司はヴィルヘルム。赤いヘルメットの人物を追っている。誕生日表記は6月12日。", wiki: "https://popnmusic.fandom.com/wiki/Jack_%28character%29", score: 0},
+    {name: "マモルくん", gender: "男", personality: "真面目・勉強熱心・恋に夢中になるとぼんやり", personalityType: "C：冷静・知性型", age: "少年", look: "黒髪の学生。学生服姿", species: "人間", color: "黒/白/紺", tempo: "普通", music: "青春ポップ・ラブソング系", note: "東京都文京区出身。推理小説を読むのが趣味。好きな子に見とれて先生に怒られることも。誕生日5月3日。", wiki: "https://popnmusic.fandom.com/wiki/Mamoru-kun", score: 0},
+    {name: "みここ", gender: "女", personality: "少しおませ・親しみやすい・食いしん坊", personalityType: "A：明朗・活発型", age: "少女", look: "紫がかった黒髪のツインテール、巫女装束、ほうき", species: "人間", color: "紫/黒/朱/白", tempo: "普通", music: "和風・ポップ", note: "町の神社で巫女をしている。花より団子な年頃。誕生日はWiki参照。", wiki: "https://popnmusic.fandom.com/wiki/Mikoko", score: 0},
+    {name: "一条司令", gender: "男", personality: "厳格・規律重視・指揮官気質（暫定）", personalityType: "D：強気・個性型", age: "成人", look: "軍人・司令官風の衣装（要確認）", species: "人間（暫定）", color: "黒/緑/灰", tempo: "普通〜速め", music: "ミリタリー・ロック系（暫定）", note: "詳細な人物設定・外見は要再確認。性格属性は暫定分類。", wiki: "https://popnmusic.fandom.com/wiki/Mr._Ichijo", score: 0},
+    {name: "ミステルフンガーノ", gender: "男", personality: "陽気・人懐っこい・少し不思議（暫定）", personalityType: "B：穏やか・自由型", age: "成人相当", look: "奇抜な衣装・大きな鼻が特徴（要確認）", species: "人間（暫定）", color: "赤/黄/黒（暫定）", tempo: "普通", music: "コミカル・ポップ系（暫定）", note: "細部の設定はWiki本文を再確認して補完。", wiki: "https://popnmusic.fandom.com/wiki/Mr._Fungano", score: 0},
+    {name: "ミスターカツっ子", gender: "男", personality: "元気・食いしん坊・庶民的（暫定）", personalityType: "A：明朗・活発型", age: "成人相当", look: "カツ料理をモチーフにしたコミカルな姿（要確認）", species: "人外（カツ丼モチーフの頭部）", color: "茶/黄/赤（暫定）", tempo: "普通〜速め", music: "コミカル・和風ポップ（暫定）", note: "詳細プロフィールはWiki本文を再確認して補完。／種族を人間から人外に修正。ミスターそばっ子の兄で、エビフライとトンカツの丼の頭を持つキャラクター。", wiki: "https://popnmusic.fandom.com/wiki/Mr._Katucco", score: 0},
+    {name: "グレン", gender: "男", personality: "クール・冒険好き・食への関心も強い", personalityType: "C：冷静・知性型", age: "若者", look: "空を旅する冒険者風。細部はWiki参照", species: "人間", color: "青/白/茶", tempo: "普通〜速め", music: "冒険・ファンタジー系", note: "空を旅し、空飛ぶクジラを追う冒険者。誕生日・外見の細部はWiki参照。", wiki: "https://popnmusic.fandom.com/wiki/Glen", score: 0},
+    {name: "グランドハンマー", gender: "不明", personality: "激しい演奏を好む・自立的・ネズミに友好的", personalityType: "D：強気・個性型", age: "不明", look: "黄色い目と口ひげのある濃紺の自動演奏ピアノ。内部は紫、上に花瓶", species: "憑依したピアノ", color: "紺/紫/黄/緑", tempo: "速め", music: "ハードPƒ・激しいピアノ曲", note: "性別不明。シチリア出身、10月8日。自分で演奏し、ネズミを友達として好む。磨きすぎは苦手。", wiki: "https://popnmusic.fandom.com/wiki/Grand_Hammer", score: 0},
+    {name: "エフ ・ トレイン", gender: "不明", personality: "疾走感・自由さ・旅情（暫定）", personalityType: "B：穏やか・自由型", age: "不明", look: "列車をモチーフにしたキャラクター（要確認）", species: "列車モチーフ（暫定）", color: "未確認", tempo: "速め", music: "鉄道・テクノ系（暫定）", note: "指定Wikiの詳細プロフィールを再確認して補完。", wiki: "https://popnmusic.fandom.com/wiki/F-Train", score: 0},
+    {name: "フロウフロウ", gender: "プログラム上は女", personality: "儚げ・不思議・感情が揺れ動く印象", personalityType: "C：冷静・知性型", age: "不明", look: "マゼンタ系の髪と目、青系の帽子・衣装。ホログラムとして浮遊", species: "ホログラム", color: "マゼンタ/水色/青/白", tempo: "普通", music: "テクノ・エレクトロニカ・切ないポップ", note: "ホログラムの投影少女。実体をつかめず、話すことも触れることもできない設定。誕生日2月6日。", wiki: "https://popnmusic.fandom.com/wiki/Flow_Flow", score: 0},
+    {name: "ホット.D", gender: "男", personality: "情熱的・ワイルド・音楽に熱い", personalityType: "D：強気・個性型", age: "青年", look: "犬の青年。ヘビメタバンドのボーカルらしいワイルドな姿", species: "犬（擬人化）", color: "黒/赤/黄", tempo: "速め", music: "ヘヴィメタル・ハードロック", note: "ヘビメタバンド「ketchup 'n' mustard」のリードボーカル。担当曲はL.A.メタル。", wiki: "https://popnmusic.fandom.com/wiki/Hot.D", score: 0},
+    {name: "壱ノ妙", gender: "不明", personality: "不気味・無邪気・どこか哀愁がある", personalityType: "D：強気・個性型", age: "不明", look: "青白い肌、赤い目、黒髪。片側に黒い袖と赤い花飾り", species: "人形（雨人形）", color: "黒/赤/白", tempo: "遅め", music: "エレジィ・ゴシック・ダーク系", note: "正式名称は雨人形壱ノ妙。頭が回転するからくり人形。出身地は京都市。誕生日は1月10日（設定上は不明表記もあり）。", wiki: "https://popnmusic.fandom.com/wiki/Ichi_No_Myou", score: 0},
+    {name: "育江", gender: "女", personality: "穏やか・母性的・幸せを探し続ける", personalityType: "B：穏やか・自由型", age: "成人", look: "淡い灰色の長髪、淡い青の目、白いワンピースと黄色い帽子。赤ん坊を抱いている", species: "人間", color: "白/灰/水色/黄", tempo: "遅め", music: "叙情的・ゴシック・ピアノ系", note: "日本出身。趣味は子育て。子どもの幸せを願いながら旅をしている。誕生日4月12日。", wiki: "https://popnmusic.fandom.com/wiki/Ikue", score: 0},
+    {name: "イズミさん", gender: "女", personality: "落ち着いている・面倒見がよい・大人っぽい", personalityType: "B：穏やか・自由型", age: "成人", look: "茶髪のお団子ヘア、紫の眼鏡、ストライプのシャツとエプロン", species: "人間", color: "茶/紫/紺/白", tempo: "普通", music: "ユーロピッコラ・おしゃれなポップ", note: "東京・台東区出身。映画鑑賞、音楽鑑賞、昼寝が趣味。温かいコーヒーやチャイが好き。誕生日1月23日。", wiki: "https://popnmusic.fandom.com/wiki/Izumi-san", score: 0},
+    {name: "カガミ", gender: "女", personality: "静か・優雅・感情豊か", personalityType: "B：穏やか・自由型", age: "若者", look: "深い梅色の長いポニーテール、ターコイズ色の目、水色と薄桃色の着物", species: "人間", color: "梅/水色/薄桃/赤/金", tempo: "普通", music: "和風・幻想的・舞踊系", note: "海を静かに好み、荒れた海を苦手とする。趣味は踊り。出身地は海神村、誕生日10月7日。", wiki: "https://popnmusic.fandom.com/wiki/Kagami", score: 0},
+    {name: "轟競", gender: "男", personality: "勝負好き・熱血・競争心が強い（暫定）", personalityType: "D：強気・個性型", age: "若者", look: "詳細な外見はWiki要確認", species: "人間（暫定）", color: "赤/黒/白（暫定）", tempo: "速め", music: "レース・スポーツ系（暫定）", note: "性格・外見などの細部はWiki本文を再確認して補完。現時点では暫定分類。", wiki: "https://popnmusic.fandom.com/wiki/Kisou_Todoroki", score: 0},
+    {name: "ナイト", gender: "男", personality: "騎士道精神・忠実・寡黙（暫定）", personalityType: "D：強気・個性型", age: "老人", look: "騎士を思わせる姿（詳細要確認）", species: "人間（暫定）", color: "銀/黒/青（暫定）", tempo: "普通〜速め", music: "ファンタジー・ロック系（暫定）", note: "指定Wikiの詳細プロフィール確認が必要なため、属性は暫定。／性別・年齢層をユーザー指定に基づき修正：男性・老人。", wiki: "https://popnmusic.fandom.com/wiki/Knight", score: 0},
+    {name: "小坊主", gender: "男", personality: "不思議・含みのある話し方・説教好き", personalityType: "C：冷静・知性型", age: "少年の姿", look: "黒い乱れ髪、黒い大きな目、白い小袖、錫杖", species: "人間", color: "黒/白", tempo: "遅め", music: "神曲・和風・荘厳系", note: "出身地は涅槃。巡礼が趣味で説法が好き。誕生日は8月15日とされる。", wiki: "https://popnmusic.fandom.com/wiki/Kobozu", score: 0},
+    {name: "カンタ", gender: "不明", personality: "無口・不思議・神秘的", personalityType: "C：冷静・知性型", age: "不明", look: "黒いとがった髪、小さな黒い目、黒い体に茶色の縁取りの小さな人形", species: "操り人形", color: "黒/茶/白", tempo: "普通", music: "ナイトメア・幻想的・ダーク系", note: "横浜出身。人形のロッテに見つけられ、世話をされている。関節を逆に曲げるダンスが趣味。誕生日9月6日。", wiki: "https://popnmusic.fandom.com/wiki/Kanta", score: 0}
 ];
 
 let filteredCharacters = [...characters];
 
-// 質問リスト（全8問構成・配点チューニング済）
+// 質問リスト（最適化版）
 const questions = [
     {
         question: "Q1. キャラクターの種族は？",
@@ -309,10 +316,10 @@ const questions = [
     {
         question: "Q3. キャラクターの年齢層（世代）の好みは？",
         options: [
-            { text: "子供・児童（元気いっぱい系）", key: "age", value: "子供", weight: 3 },
-            { text: "10代（学生・フレッシュ系）", key: "age", value: "10代", weight: 3 },
-            { text: "若者（お兄さん・お姉さん系）", key: "age", value: "若者", weight: 3 },
-            { text: "成人・大人の魅力（ベテラン・神・生前など）", key: "age", value: "成人", weight: 3 }
+            { text: "子供・児童（元気いっぱい系）", ageType: "子供", weight: 3 },
+            { text: "10代（学生・フレッシュ系）", ageType: "10代", weight: 3 },
+            { text: "若者・青年（お兄さん・お姉さん・爽やか系）", ageType: "若者・青年", weight: 3 },
+            { text: "成人・大人の魅力（ベテラン・神・生前など）", ageType: "成人", weight: 3 }
         ]
     },
     {
@@ -320,16 +327,17 @@ const questions = [
         options: [
             { text: "とにかくかわいい系", key: "look", value: "かわいい", weight: 3 },
             { text: "かっこいい・スタイリッシュ系", key: "look", value: "かっこいい", weight: 3 },
-            { text: "ゴシック・ドレス・アンデッド・ミステリアス系", gothicDressLook: true, weight: 4 },
-            { text: "和風・エスニック系", key: "look", value: "和風", weight: 3 },
-            { text: "個性的・コミカル系", key: "look", value: "コミカル", weight: 3 }
+            { text: "✨ アイドル・王子様・華やか系", idolLook: true, weight: 4 },
+            { text: "🥀 ゴシック・ドレス・アンデッド・ミステリアス系", gothicDressLook: true, weight: 4 },
+            { text: "🌸 和風・エスニック系", key: "look", value: "和風", weight: 3 },
+            { text: "🎨 個性的・コミカル系", key: "look", value: "コミカル", weight: 3 }
         ]
     },
     {
         question: "Q5. どんな性格タイプに一番惹かれる？（最重要）",
         options: [
             { text: "✨ A：明朗・活発型（明るい、元気、活発、おしゃべりなど）", personalityType: "A", weight: 5 },
-            { text: "🍃 B：穏やか・自由型（優しい、マイペース、おっとり、飄々など）", personalityType: "B", weight: 5 },
+            { text: "🍃 B：穏やか・自由型（優しい、マイペース、おっとり、ファン気質、素直など）", personalityType: "B", weight: 5 },
             { text: "🌙 C：冷静・知性型（物静か、一途、儚い、哀愁、知的など）", personalityType: "C", weight: 5 },
             { text: "🔥 D：強気・個性型（豪快、勝ち気、熱血、コミカルなど）", personalityType: "D", weight: 5 }
         ]
@@ -345,18 +353,18 @@ const questions = [
     {
         question: "Q7. 好きな音楽のジャンル・雰囲気は？",
         options: [
-            { text: "ポップス・アイドル・ダンス系", key: "music", value: "ポップ", weight: 3 },
-            { text: "ロック・パンク・メタル系", key: "music", value: "ロック", weight: 3 },
-            { text: "和風・エスニック・民族系", key: "music", value: "和風", weight: 3 },
-            { text: "ゴシック・メランコリック・クラシック・ダーク系", gothicMusic: true, weight: 4 },
-            { text: "ジャズ・ラテン・ファンタジー・テクノ系", key: "music", value: "ジャズ", weight: 3 }
+            { text: "🎤 ポップス・アイドル・J-ロック系", idolMusic: true, weight: 4 },
+            { text: "🎸 ロック・パンク・メタル系", key: "music", value: "ロック", weight: 3 },
+            { text: "🌸 和風・エスニック・民族系", key: "music", value: "和風", weight: 3 },
+            { text: "🥀 ゴシック・メランコリック・クラシック・ダーク系", gothicMusic: true, weight: 4 },
+            { text: "🎷 ジャズ・ラテン・ファンタジー・テクノ系", key: "music", value: "ジャズ", weight: 3 }
         ]
     },
     {
         question: "Q8. どんな世界観に惹かれる？（超重要）",
         options: [
             { text: "🎨 A. カラフルで楽しく、にぎやかな世界", personalityType: "A", weight: 6 },
-            { text: "🌿 B. 自然体で自由、少し不思議な世界", personalityType: "B", weight: 6 },
+            { text: "🌿 B. 自然体で自由、少し不思議な世界（推し活・ブログ・趣味もここ）", personalityType: "B", weight: 6 },
             { text: "🌌 C. 神秘的で知的、静けさのある世界", personalityType: "C", weight: 6 },
             { text: "🥀 D. ダーク・ゴシックで切なく、哀愁あふれる世界", darkGothicWorld: true, weight: 6 }
         ]
@@ -399,20 +407,46 @@ function selectOption(opt) {
         if (opt.genderType === "男") {
             filteredCharacters = filteredCharacters.filter(c => c.gender === "男");
         } else if (opt.genderType === "女") {
-            filteredCharacters = filteredCharacters.filter(c => c.gender === "女");
+            filteredCharacters = filteredCharacters.filter(c => c.gender === "女" || c.gender.includes("女"));
         } else if (opt.genderType === "不明") {
-            filteredCharacters = filteredCharacters.filter(c => c.gender === "不明" || (c.gender !== "男" && c.gender !== "女"));
+            filteredCharacters = filteredCharacters.filter(c => c.gender === "不明" || (!c.gender.includes("男") && !c.gender.includes("女")));
         }
     }
-    // Q4: ゴシック・ドレス・アンデッド判定
-    else if (currentQ === 3 && opt.gothicDressLook) {
+    // Q3: 年齢判定
+    else if (currentQ === 2 && opt.ageType) {
         filteredCharacters.forEach(c => {
-            if (c.look.includes("ゴシック") || c.look.includes("ドレス") || c.species.includes("アンデッド") || c.species.includes("幽霊")) {
-                c.score += 4;
-            } else if (c.look.includes("神秘")) {
-                c.score += 2;
+            if (opt.ageType === "若者・青年") {
+                if (c.age.includes("若者") || c.age.includes("青年") || c.age.includes("10代")) {
+                    c.score += weight;
+                }
+            } else if (c.age.includes(opt.ageType) || c.age === "不明") {
+                c.score += weight;
             }
         });
+    }
+    // Q4: アイドル・ゴシック等 見た目判定
+    else if (currentQ === 3) {
+        if (opt.idolLook) {
+            filteredCharacters.forEach(c => {
+                if (c.look.includes("アイドル") || c.look.includes("王子") || c.look.includes("スタイリッシュ") || c.look.includes("華やか")) {
+                    c.score += 4;
+                }
+            });
+        } else if (opt.gothicDressLook) {
+            filteredCharacters.forEach(c => {
+                if (c.look.includes("ゴシック") || c.look.includes("ドレス") || c.species.includes("アンデッド") || c.species.includes("幽霊")) {
+                    c.score += 4;
+                } else if (c.look.includes("神秘")) {
+                    c.score += 2;
+                }
+            });
+        } else if (opt.key) {
+            filteredCharacters.forEach(c => {
+                if (c[opt.key] && (c[opt.key].includes(opt.value) || (opt.value === "かっこいい" && (c[opt.key].includes("クール") || c[opt.key].includes("スタイリッシュ"))) || (opt.value === "コミカル" && (c[opt.key].includes("列車") || c[opt.key].includes("ロボット") || c[opt.key].includes("ドレッド"))))) {
+                    c.score += weight;
+                }
+            });
+        }
     }
     // Q5: 性格タイプ判定
     else if (currentQ === 4 && opt.personalityType) {
@@ -422,45 +456,53 @@ function selectOption(opt) {
             }
         });
     }
-    // Q7: ゴシック・メランコリック音楽判定
-    else if (currentQ === 6 && opt.gothicMusic) {
-        filteredCharacters.forEach(c => {
-            if (c.music.includes("ゴシック") || c.music.includes("メランコリック")) {
-                c.score += 4;
-            } else if (c.music.includes("ダーク") || c.music.includes("クラシック") || c.music.includes("ミスティ") || c.music.includes("エモ")) {
-                c.score += 2;
-            }
-        });
+    // Q7: 音楽ジャンル判定
+    else if (currentQ === 6) {
+        if (opt.idolMusic) {
+            filteredCharacters.forEach(c => {
+                if (c.music.includes("ポップ") || c.music.includes("アイドル") || c.music.includes("J-ロック") || c.look.includes("アイドル")) {
+                    c.score += 4;
+                }
+            });
+        } else if (opt.gothicMusic) {
+            filteredCharacters.forEach(c => {
+                if (c.music.includes("ゴシック") || c.music.includes("メランコリック")) {
+                    c.score += 4;
+                } else if (c.music.includes("ダーク") || c.music.includes("クラシック") || c.music.includes("ミスティ") || c.music.includes("エモ")) {
+                    c.score += 2;
+                }
+            });
+        } else if (opt.key) {
+            filteredCharacters.forEach(c => {
+                if (c[opt.key] && (c[opt.key].includes(opt.value) || (opt.value === "ジャズ" && (c[opt.key].includes("テクノ") || c[opt.key].includes("鉄道") || c[opt.key].includes("ラウドビーチ") || c[opt.key].includes("ビーチ"))))) {
+                    c.score += weight;
+                }
+            });
+        }
     }
-    // Q8: ダーク・ゴシック世界観判定（超重要: 6点加点）
-    else if (currentQ === 7 && opt.darkGothicWorld) {
-        filteredCharacters.forEach(c => {
-            if (c.music.includes("ゴシック") || c.music.includes("メランコリック") || c.species.includes("アンデッド")) {
-                c.score += 6;
-            } else if (c.personalityType.startsWith("C") || c.personalityType.startsWith("D")) {
-                c.score += 3;
-            }
-        });
-    }
-    else if (currentQ === 7 && opt.personalityType) {
-        filteredCharacters.forEach(c => {
-            if (c.personalityType && c.personalityType.startsWith(opt.personalityType)) {
-                c.score += weight;
-            }
-        });
+    // Q8: 世界観判定
+    else if (currentQ === 7) {
+        if (opt.darkGothicWorld) {
+            filteredCharacters.forEach(c => {
+                if (c.music.includes("ゴシック") || c.music.includes("メランコリック") || c.species.includes("アンデッド")) {
+                    c.score += 6;
+                } else if (c.personalityType.startsWith("C") || c.personalityType.startsWith("D")) {
+                    c.score += 3;
+                }
+            });
+        } else if (opt.personalityType) {
+            filteredCharacters.forEach(c => {
+                if (c.personalityType && c.personalityType.startsWith(opt.personalityType)) {
+                    c.score += weight;
+                }
+            });
+        }
     }
     // その他の属性加点
     else {
         filteredCharacters.forEach(c => {
-            if (currentQ === 6 && opt.text.includes("ジャズ・ラテン")) {
-                if (c.music.includes("ジャズ") || c.music.includes("ラテン") || c.music.includes("ファンタジー") || c.music.includes("テクノ") || c.music.includes("幻想") || c.music.includes("アンビエント") || c.music.includes("ダンス") || c.music.includes("ディスコ") || c.music.includes("シャンソン")) {
-                    c.score += weight;
-                }
-            } 
-            else {
-                if (opt.key && c[opt.key] && c[opt.key].includes(opt.value)) {
-                    c.score += weight;
-                }
+            if (opt.key && c[opt.key] && c[opt.key].includes(opt.value)) {
+                c.score += weight;
             }
         });
     }
