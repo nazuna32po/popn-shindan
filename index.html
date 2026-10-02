@@ -109,7 +109,7 @@
 </div>
 
 <script>
-// ハッシュマン修正反映済み・キャラクターデータ全リスト
+// キャラクターデータ全180件（ミステルフンガーノ・ミスターカツっ子の最新情報を確定反映）
 const characters = [
     {name: "ミミ", gender: "女", personality: "明るい・おしゃべり", personalityType: "A：明朗・活発型", age: "子供〜10代", look: "かわいい・親しみやすい", species: "ウサギ", color: "茶/ピンク", tempo: "普通", music: "ポップ・キュート", note: "Wiki設定：ウサギ。性格等は代表的な描写からの分類。／性格・見た目・色・テンポ・曲調は代表的描写/楽曲を基にした分類。", wiki: "https://popnmusic.fandom.com/wiki/Mimi", score: 0},
     {name: "ニャミ", gender: "女", personality: "明るい・ひょうきん・活発", personalityType: "A：明朗・活発型", age: "10代〜若者", look: "猫耳・茶髪・活発", species: "猫", color: "茶/青/赤/白", tempo: "普通〜速め", music: "ポップ・キュート・ダンス", note: "指定Wiki参照：女性・Cat。2月8日生まれ。ミミの親友・パートナー。チャットや遊園地が好きで、ジェットコースター好き。", wiki: "https://popnmusic.fandom.com/wiki/Nyami", score: 0},
@@ -130,7 +130,7 @@ const characters = [
     {name: "アルフォンス・ミシェル", gender: "男", personality: "知的・物静か", personalityType: "C：冷静・知性型", age: "成人", look: "美形・貴族的", species: "人間/天使?", color: "黒/青/黄", tempo: "遅め", music: "クラシック・幻想系", note: "Wikiでは種族がHuman, Angel(?)と記載。", wiki: "https://popnmusic.fandom.com/wiki/Alphonse_Michel", score: 0},
     {name: "Mr.KK", gender: "男", personality: "真面目・クール", personalityType: "B：穏やか・自由型", age: "成人", look: "都会的・渋い", species: "人間", color: "青/茶/黒", tempo: "普通", music: "パーカッシブ・アーバンロック", note: "Wiki設定：清掃員。裏の顔として狙撃手設定あり。", wiki: "https://popnmusic.fandom.com/wiki/Mr._KK", score: 0},
     {name: "ナカジ", gender: "男", personality: "ぶっきらぼう・仲間思い", personalityType: "B：穏やか・自由型", age: "10代", look: "クール・少年", species: "人間", color: "青/黒", tempo: "速め", music: "ロック・パンク", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8A%E3%82%AB%E3%82%B8", score: 0},
-    {name: "ハヤト", gender: "男", personality: "元気・真面目", personalityType: "A：明朗・活発型", age: "10代", look: "スポーティー・少年", species: "人間", color: "青/黄", tempo: "速め", music: "ロック・ポップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8F%E3%83%A4%E3%83%88", score: 0},
+    {name: "ハヤト", gender: "男", personality: "元気・真面目", personalityType: "A：明朗・活発型", age: "10代", look: "スポーティー・少年", species: "人間", color: "青/黄", tempo: "速め", music: "ロック・ポップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%8F%E3%82%B8%E3%83%A1", score: 0},
     {name: "リゼット", gender: "女", personality: "おっとり・優しい", personalityType: "B：穏やか・自由型", age: "10代", look: "かわいい・清楚", species: "人間", color: "ピンク/白", tempo: "普通", music: "ポップ・ガーリー", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AA%E3%82%BC%E3%83%83%E3%83%88", score: 0},
     {name: "ムラサキ", gender: "女", personality: "芯が強い・職人気質", personalityType: "B：穏やか・自由型", age: "若者", look: "和風・艶やか", species: "人間", color: "紫/黒/赤", tempo: "普通", music: "三味線・和風", note: "Wiki設定：人間、三味線・裁縫が趣味。", wiki: "https://popnmusic.fandom.com/wiki/Murasaki", score: 0},
     {name: "スギくん", gender: "男", personality: "爽やか・音楽好き", personalityType: "B：穏やか・自由型", age: "若者", look: "バンドマン・爽やか", species: "人間", color: "緑/白", tempo: "普通", music: "ロック・ポップロック", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B9%E3%82%AE%E3%81%8F%E3%82%93", score: 0},
@@ -180,7 +180,7 @@ const characters = [
     {name: "シャラ", gender: "女", personality: "華やか・快活", personalityType: "A：明朗・活発型", age: "若者", look: "ダンサー・スタイリッシュ", species: "人間", color: "紫/桃/青", tempo: "速め", music: "ダンス・ラテン", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%B7%E3%83%A3%E3%83%A9", score: 0},
     {name: "ヨシオ", gender: "男", personality: "熱血・忍者好き・素直", personalityType: "D：強気・個性型", age: "10代", look: "忍者風・少年", species: "人間／忍者", color: "赤/白/黒", tempo: "速め", music: "ポップ・和風コミカル", note: "Wiki設定：男性・Human, ninja。隠れ里出身。シノビアンのグッズ収集が趣味、卓球とふりかけ（のりたま）が好き。", wiki: "https://popnmusic.fandom.com/wiki/Yoshio", score: 0},
     {name: "ユンタ", gender: "男", personality: "おおらか・素直", personalityType: "B：穏やか・自由型", age: "10代", look: "少年・民族風", species: "人間", color: "緑/黄", tempo: "普通〜速め", music: "民族・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%A6%E3%83%B3%E3%82%BF", score: 0},
-    {name: "マリィ", gender: "女", personality: "大人っぽい・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "美人・都会的", species: "人間", color: "赤/黒", tempo: "普通", music: "ジャズ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9E%E3%83%AA%E3%82%A3", score: 0},
+    {name: "マリィ", gender: "女", personality: "大人っぽい・おしゃれ", personalityType: "B：穏やか・自由型", age: "若者", look: "美人・都会的", species: "人間", color: "赤/黒", tempo: "普通", music: "ジャズ・ポップ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%9E%E3%82%B3%E3%83%88", score: 0},
     {name: "クラフト", gender: "男", personality: "職人気質・穏やか", personalityType: "B：穏やか・自由型", age: "成人", look: "職人・コミカル", species: "人間", color: "茶/黄", tempo: "普通", music: "ポップ・フォーク", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%AF%E3%83%A9%E3%83%95%E3%83%88", score: 0},
     {name: "オリビア", gender: "女", personality: "優雅・社交的", personalityType: "A：明朗・活発型", age: "若者", look: "エレガント・美人", species: "人間", color: "紫/白/金", tempo: "普通", music: "ラウンジ・ディスコ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%82%AA%E3%83%AA%E3%83%93%E3%82%A2", score: 0},
     {name: "レイブガール", gender: "女", personality: "クール・自由奔放", personalityType: "B：穏やか・自由型", age: "若者", look: "クラブ系・スタイリッシュ", species: "人間", color: "黒/赤/青", tempo: "速め", music: "レイヴ・テクノ", note: "代表曲からの分類。", wiki: "https://popnmusic.fandom.com/ja/wiki/%E3%83%AC%E3%82%A4%E3%83%96%E3%82%AC%E3%83%BC%E3%83%AB", score: 0},
@@ -294,7 +294,7 @@ const characters = [
 
 let filteredCharacters = [...characters];
 
-// 質問リスト（最適化版）
+// 質問リスト（全8問）
 const questions = [
     {
         question: "Q1. キャラクターの種族は？",
@@ -419,7 +419,7 @@ function selectOption(opt) {
                 if (c.age.includes("若者") || c.age.includes("青年") || c.age.includes("10代")) {
                     c.score += weight;
                 }
-            } else if (c.age.includes(opt.ageType) || c.age === "不明") {
+            } else if (c.age.includes(opt.ageType) || c.age === "不明" || c.age.includes("相当")) {
                 c.score += weight;
             }
         });
@@ -442,7 +442,7 @@ function selectOption(opt) {
             });
         } else if (opt.key) {
             filteredCharacters.forEach(c => {
-                if (c[opt.key] && (c[opt.key].includes(opt.value) || (opt.value === "かっこいい" && (c[opt.key].includes("クール") || c[opt.key].includes("スタイリッシュ"))) || (opt.value === "コミカル" && (c[opt.key].includes("列車") || c[opt.key].includes("ロボット") || c[opt.key].includes("ドレッド"))))) {
+                if (c[opt.key] && (c[opt.key].includes(opt.value) || (opt.value === "かっこいい" && (c[opt.key].includes("クール") || c[opt.key].includes("スタイリッシュ"))) || (opt.value === "コミカル" && (c[opt.key].includes("列車") || c[opt.key].includes("ロボット") || c[opt.key].includes("ドレッド") || c[opt.key].includes("奇抜") || c[opt.key].includes("モチーフ"))))) {
                     c.score += weight;
                 }
             });
